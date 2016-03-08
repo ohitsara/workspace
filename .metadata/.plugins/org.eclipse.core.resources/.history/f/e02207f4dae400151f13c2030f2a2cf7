@@ -1,0 +1,88 @@
+import java.io.*;
+import java.util.*;
+
+public class CalendarMaker {
+	private final static int	CLASSIFICATION = 1;
+	private final static int	LOCATION = 2;
+	private final static int	SUMMARY = 3;
+	private final static int	BEGIN_TIME = 4;
+	private final static int	END_TIME = 5;
+	private final static int	DISPLAY_EVENT = 6;
+	private final static int	CREATE_CALENDAR = 7;
+	private final static int	QUIT = 8;
+	
+	private String				eLocation;
+	private String				eSummary;
+	private Scanner				eScan;
+	private boolean				result;
+
+	public static void main (String [] args){
+		int userChoice = 0;
+		final int quit = 2;
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Welcome to Calendar Event Maker");
+		System.out.println("[1]Create Event [2]Quit");
+		System.out.println("Your choice:");
+		userChoice = scan.nextInt();
+		
+		try{
+			if (userChoice != quit){
+				CalendarMaker myCalendar = new CalendarMaker();
+				myCalendar.begin();
+			}else
+				System.out.println("Thank you for using Calendar Maker");
+		} catch(InputMismatchException e){
+			System.out.println("Error: The choice you entered is not a number.");
+			System.exit(1);
+		} catch (NoSuchElementException e){
+			System.out.println("Error: Invalid Input");
+			System.exit(1);
+		}
+		scan.close();
+	}//end of main method
+	public CalendarMaker(){
+		eScan = new Scanner(System.in);
+		eLocation = new String ("");
+		eSummary = new String ("");
+		
+	}//end of Constructor
+	public void begin(){
+		int userInput = 0;
+		boolean test = true;
+		while (userInput != QUIT){
+			System.out.println("[1]Public/Private [2]Location [3]Summary" +
+							   "[4]Start Time [5]End Time [6]Display Event" +
+							   " [7]Create Calendar [8]QUIT");
+			try{
+				userInput = eScan.nextInt();
+			}catch (Exception e){
+				System.out.println("Error:Please enter a valid choice.");
+			}
+			test = true;
+			switch(userInput){
+			case CLASSIFICATION:
+				test = Classification();
+				break;
+			case LOCATION:
+				getLocation();
+				break;
+			}//end of switch
+		}//end of while
+	}//end of method
+	public boolean Classification(){
+		System.out.println("[1]Public or [2]Private");
+		int userInput = eScan.nextInt();
+		if (userInput != 1 && userInput !=2){
+			return false;
+		}else if(userInput == 1){
+			result = true;
+		}else
+			result = false;
+		return true;
+	}
+	public void getLocation(){
+		System.out.println("Enter a Location:");
+		eLocation = eScan.nextLine();
+	}
+}//end of class

@@ -1,0 +1,2 @@
+2016-03-05 23:06:33,366 [Worker-7] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache file is not available. Remote download required.
+2016-03-07 17:21:33,630 [Worker-47] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache file is out-of-date. Remote download required.
