@@ -1,20 +1,26 @@
+/******************************
+ * 
+ * @author TeamSeis
+ * ICS 314: Calendar Project
+ * 
+ */
 public class DateBlock implements Comparable<DateBlock> {
-  private DateData                mStartTime;
-  private DateData                mEndTime;
+  private DateData	startTime;
+  private DateData	endTime;
 
   public DateBlock() {
-    mStartTime = new DateData();
-    mEndTime = new DateData();
+    startTime = new DateData();
+    endTime = new DateData();
   }
 
   public DateBlock(DateData start, DateData end) {
-    mStartTime = start;
-    mEndTime = end;
+    startTime = start;
+    endTime = end;
   }
 
   public DateBlock(String start, String end) {
-    mStartTime = new DateData(start);
-    mEndTime = new DateData(end);
+    startTime = new DateData(start);
+    endTime = new DateData(end);
   }
 
   public static DateBlock difference(DateBlock left, DateBlock right) {
@@ -26,23 +32,22 @@ public class DateBlock implements Comparable<DateBlock> {
   }
 
   public DateData getStartTime() {
-    return mStartTime;
+    return startTime;
   }
 
   public DateData getEndTime() {
-    return mEndTime;
+    return endTime;
   }
 
   public void setStartTime(DateData start) {
-    mStartTime = start;
+    startTime = start;
   }
 
   public void setEndTime(DateData end) {
-    mEndTime = end;
+    endTime = end;
   }
 
-  @Override
-  public int compareTo(DateBlock o) {
-    return mStartTime.compareTo(o.mStartTime);
+  public int compareTo(DateBlock date) {
+    return startTime.compareTo(date.startTime);
   }
 }

@@ -1,55 +1,59 @@
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Scanner;
+/*************************************
+ * 
+ * @author: TeamSeis
+ * ICS 314: Calendar Project
+ * 
+ * This program set up the format
+ * for begin and end date in the
+ * Calendar.java file.
+ */
+
+import java.text.*;
+import java.util.*;
 
 public class DateData implements Comparable<DateData> {
-  private static final DateFormat           ICS_FORMAT_DATE = new SimpleDateFormat(
-      "yyyyMMdd");
-  private static final DateFormat           ICS_FORMAT_TIME = new SimpleDateFormat(
-      "HHmmss");
-  private static final DateFormat           DATE_FORMAT = new SimpleDateFormat(
-      "MM/dd/yyyy");
-  private static final DateFormat           TIME_FORMAT = new SimpleDateFormat("HH:mm:ss");
+  private static final DateFormat	ICS_FORMAT_DATE = new SimpleDateFormat("yyyyMMdd");
+  private static final DateFormat   ICS_FORMAT_TIME = new SimpleDateFormat("HHmmss");
+  private static final DateFormat   DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy");
+  private static final DateFormat   TIME_FORMAT = new SimpleDateFormat("HH:mm:ss");
 
-  private Calendar                          mCal;
-
+  private Calendar myCalendar;
+  
   public DateData() {
-    mCal = Calendar.getInstance();
+    myCalendar = Calendar.getInstance();
   }
 
   public DateData(int year, int month, int day, int hour, int minute, int second) {
-    mCal = Calendar.getInstance();
-    mCal.set(year, month - 1, day, hour, minute, second);
+	  myCalendar = Calendar.getInstance();
+	  myCalendar.set(year, month - 1, day, hour, minute, second);
   }
 
   public DateData(DateData other) {
-    mCal = (Calendar) other.mCal.clone();
+	  myCalendar = (Calendar) other.myCalendar.clone();
   }
 
   public DateData(String data) {
-    mCal = Calendar.getInstance();
-    int year = 0, month = 0, day = 0, hour = 0, minute = 0, second = 0;
-    try {
-      year = Integer.parseInt(data.substring(0, 4));
-      month = Integer.parseInt(data.substring(4, 6));
-      day = Integer.parseInt(data.substring(6, 8));
-      hour = Integer.parseInt(data.substring(9, 11));
-      minute = Integer.parseInt(data.substring(11, 13));
-      second = Integer.parseInt(data.substring(13, 15));
+	  myCalendar = Calendar.getInstance();
+	  int year = 0, month = 0, day = 0, hour = 0, minute = 0, second = 0;
+	  try {
+		  year 	   = 	Integer.parseInt(data.substring(0, 4));
+		  month    = 	Integer.parseInt(data.substring(4, 6));
+		  day	   =	Integer.parseInt(data.substring(6, 8));
+		  hour 	   = 	Integer.parseInt(data.substring(9, 11));
+		  minute   = 	Integer.parseInt(data.substring(11, 13));
+		  second   = 	Integer.parseInt(data.substring(13, 15));
     } catch (Exception e) {
       e.printStackTrace();
     }
-    // possibly could check if data is valid over here
-    mCal.set(year, month - 1, day, hour, minute, second);
+	  myCalendar.set(year, month - 1, day, hour, minute, second);
   }
 
   public Calendar getCal() {
-    return mCal;
+    return myCalendar;
   }
 
   public void setCal(Calendar cal) {
-    mCal = cal;
+	  myCalendar = cal;
   }
 
   public static int timeDifference(DateData left, DateData right) {
@@ -68,62 +72,60 @@ public class DateData implements Comparable<DateData> {
   }
 
   public String format() {
-    return ICS_FORMAT_DATE.format(mCal.getTime()) + "T"
-        + ICS_FORMAT_TIME.format(mCal.getTime());
+    return ICS_FORMAT_DATE.format(myCalendar.getTime()) + "T"
+        + ICS_FORMAT_TIME.format(myCalendar.getTime());
   }
 
   public void show() {
-    System.out.println("Month/Day/Year: " + DATE_FORMAT.format(mCal.getTime()));
-    System.out.println("Hour:Minute:Second: "
-        + TIME_FORMAT.format(mCal.getTime()));
+    System.out.println("Date: " + DATE_FORMAT.format(myCalendar.getTime()));
+    System.out.println("Time: "
+        + TIME_FORMAT.format(myCalendar.getTime()));
   }
 
-  public boolean grab() {
+ public boolean grab() {
     Scanner scanner = new Scanner(System.in);
-    System.out.println("Enter Month (1-12):");
+    System.out.print("Enter Month (1-12):");
     int inputInt = Integer.parseInt(scanner.nextLine());
     if (inputInt < 1 || inputInt > 12)
       return false;
-    mCal.set(Calendar.MONTH, inputInt - 1);
+    myCalendar.set(Calendar.MONTH, inputInt - 1);
 
-    System.out.println("Enter Day (1-31):");
+    System.out.print("Enter Day (1-31):");
     inputInt = Integer.parseInt(scanner.nextLine());
     if (inputInt < 1 || inputInt > 31)
       return false;
-    mCal.set(Calendar.DAY_OF_MONTH, inputInt);
+    myCalendar.set(Calendar.DAY_OF_MONTH, inputInt);
 
-    System.out.println("Enter Year (0-9999):");
+    System.out.print("Enter Year (0-9999):");
     inputInt = Integer.parseInt(scanner.nextLine());
     if (inputInt < 0 || inputInt > 9999)
       return false;
-    mCal.set(Calendar.YEAR, inputInt);
+    myCalendar.set(Calendar.YEAR, inputInt);
 
-    System.out.println("Enter Hour (0-23):");
+    System.out.print("Enter Hour (0-23):");
     inputInt = Integer.parseInt(scanner.nextLine());
     if (inputInt < 0 || inputInt > 23)
       return false;
-    mCal.set(Calendar.HOUR_OF_DAY, inputInt);
+    myCalendar.set(Calendar.HOUR_OF_DAY, inputInt);
 
-    System.out.println("Enter Minute (0-59):");
+    System.out.print("Enter Minute (0-59):");
     inputInt = Integer.parseInt(scanner.nextLine());
     if (inputInt < 0 || inputInt > 59)
       return false;
-    mCal.set(Calendar.MINUTE, inputInt);
+    myCalendar.set(Calendar.MINUTE, inputInt);
 
-    System.out.println("Enter Second (0-59):");
+    System.out.print("Enter Second (0-59):");
     inputInt = Integer.parseInt(scanner.nextLine());
     if (inputInt < 0 || inputInt > 59)
       return false;
-    mCal.set(Calendar.SECOND, inputInt);
-    
+    myCalendar.set(Calendar.SECOND, inputInt);
+
     return true;
   }
-
-  @Override
   public int compareTo(DateData o) {
-    if (mCal.getTime().before(o.mCal.getTime())) {
+    if (myCalendar.getTime().before(o.myCalendar.getTime())) {
       return -1;
-    } else if (mCal.getTime().after(o.mCal.getTime())) {
+    } else if (myCalendar.getTime().after(o.myCalendar.getTime())) {
       return 1;
     } else {
       return 0;
