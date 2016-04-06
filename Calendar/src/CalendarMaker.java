@@ -7,21 +7,29 @@
 
 import java.io.*;
 import java.util.*;
- 
+import java.text.NumberFormat;
+import java.lang.Float;
+
 public class CalendarMaker {
   private final static int          CLASSIFICATION = 1;
   private final static int          LOCATION = 2;
-  private final static int          EVENT = 3;
-  private final static int          START_TIME = 4;
-  private final static int          END_TIME = 5;
-  private final static int          DISPLAY_DATA = 6;
-  private final static int          MAKE_CALENDAR = 7;
-  private final static int          QUIT = 8;
+  private final static int			GEOGRAPHIC_POSITION = 3;
+  private final static int          EVENT = 4;
+  private final static int          START_TIME = 5;
+  private final static int          END_TIME = 6;
+  private final static int          DISPLAY_DATA = 7;
+  private final static int          MAKE_CALENDAR = 8;
+  private final static int          QUIT = 9;
 
   private boolean                   isPublic;
   private String					classification;
   private String                    location;
   private String                    event;
+  private String					geoLat;
+  private String					geoLon;
+  private float						geoLocateLat;
+  private float						geoLocateLon;
+  
 
   private DateBlock             	eventDate;
   private Scanner                   scanner;
@@ -66,9 +74,10 @@ public class CalendarMaker {
     int inputInt = 0;
     boolean test = true;
     while (inputInt != QUIT) {
-      System.out.print("[1]Public/Private,[2]Location, "
-          + "[3]Event Title, [4]Begin Time,[5]End Time, [6]Display Data, "
-          + "[8]Quit:");
+      System.out.println("[1]Event Classification,[2]Location,[3]Geographic Position ");
+      System.out.println("[4]Event Title, [5]Begin Time,[6]End Time,");
+      System.out.println("7]Display Data,[8]Make Calendar, [9]Quit");
+      System.out.print("Your Choice:");
       try {
         inputInt = Integer.parseInt(scanner.nextLine());
       } catch (Exception e) {
@@ -82,6 +91,9 @@ public class CalendarMaker {
       case LOCATION:
         setLocation();
         break;
+      case GEOGRAPHIC_POSITION:
+    	 setGeoPosition();
+    	 break;
       case EVENT:
         setEvent();
         break;
@@ -131,6 +143,19 @@ public class CalendarMaker {
     location = scanner.nextLine();
   }
 
+  public void setGeoPosition(){
+	  System.out.println("If you're not sure of the coordinates,");
+	  System.out.println("See google maps: https://www.google.com/maps/");
+	  System.out.print("Enter Latitude coordinate:");
+	  geoLocateLat = scanner.nextFloat();
+	  System.out.print("Enter Longitude coordinate:");
+	  geoLocateLon = scanner.nextFloat();
+	  
+	  geoLat = Float.toString(geoLocateLat);
+	  geoLon = Float.toString(geoLocateLon);
+	
+  }
+  
   public void setEvent() {
     System.out.print("Enter the Event Title/Summary:");
     event = scanner.nextLine();
@@ -150,6 +175,7 @@ public class CalendarMaker {
     System.out.println("Calendar Information:");
     getClassification();
     getLocation();
+    getGeoPosition();
     getEvent();
     getStartTime();
     getEndTime();
@@ -162,6 +188,11 @@ public class CalendarMaker {
   public void getLocation() {
     System.out.println("Location: " + location);
    
+  }
+  
+  public void getGeoPosition(){
+	  System.out.println("Geographic Position: " + "\n Latitude:" + geoLat
+	  					+ "\n Longitude:" + geoLon);
   }
 
   public void getEvent() {
@@ -198,6 +229,7 @@ public class CalendarMaker {
       writer.println("CLASS:PRIVATE");
     }
     writer.println("LOCATION:" + location);
+    writer.println("GEOGRAPHIC POSITION:" + geoLat + "/" + geoLon);
     writer.println("SUMMARY:" + event);
     writer.println("DTSTART;TZID=Pacific/Honolulu:"
     				+ eventDate.getStartTime().format());

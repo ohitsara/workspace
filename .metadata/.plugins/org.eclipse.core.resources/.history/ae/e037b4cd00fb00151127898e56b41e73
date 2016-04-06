@@ -1,0 +1,3415 @@
+package com.maxmind.geoip2;
+//generated automatically from admin/generate_regionName.pl
+public class regionName {
+static public String regionNameByCode(String country_code,String region_code) {
+ String name = null;
+ int region_code2 = -1;
+ if (region_code == null) { return null; }
+ if (region_code.equals("")) { return null; }
+
+ if (    ((region_code.charAt(0) >= 48 ) && ( region_code.charAt(0) < ( 48 + 10 )))
+      && ((region_code.charAt(1) >= 48 ) && ( region_code.charAt(1) < ( 48 + 10 )))
+ ){
+   // only numbers, that shorten the large switch statements
+   region_code2 = (region_code.charAt(0)- 48) * 10 + region_code.charAt(1) - 48;
+ }
+	  else if (    (    ((region_code.charAt(0) >= 65) && (region_code.charAt(0) < (65 + 26)))
+              || ((region_code.charAt(0) >= 48) && (region_code.charAt(0) < (48 + 10))))
+         && (    ((region_code.charAt(1) >= 65) && (region_code.charAt(1) < (65 + 26)))
+              || ((region_code.charAt(1) >= 48) && (region_code.charAt(1) < (48 + 10))))
+) {
+
+ region_code2 = (region_code.charAt(0) - 48) * (65 + 26 - 48) + region_code.charAt(1) - 48 + 100;
+}
+
+if (region_code2 == -1) {return null;}
+ if (country_code.equals("CA") == true) {
+   switch (region_code2) {
+     case 849:
+     name = "Alberta";
+     break;
+     case 893:
+     name = "British Columbia";
+     break;
+     case 1365:
+     name = "Manitoba";
+     break;
+     case 1408:
+     name = "New Brunswick";
+     break;
+     case 1418:
+     name = "Newfoundland";
+     break;
+     case 1425:
+     name = "Nova Scotia";
+     break;
+     case 1427:
+     name = "Nunavut";
+     break;
+     case 1463:
+     name = "Ontario";
+     break;
+     case 1497:
+     name = "Prince Edward Island";
+     break;
+     case 1538:
+     name = "Quebec";
+     break;
+     case 1632:
+     name = "Saskatchewan";
+     break;
+     case 1426:
+     name = "Northwest Territories";
+     break;
+     case 1899:
+     name = "Yukon Territory";
+     break;
+   }
+ }
+ if (country_code.equals("US") == true) {
+   switch (region_code2) {
+     case 848:
+     name = "Armed Forces Americas";
+     break;
+     case 852:
+     name = "Armed Forces Europe";
+     break;
+     case 858:
+     name = "Alaska";
+     break;
+     case 859:
+     name = "Alabama";
+     break;
+     case 863:
+     name = "Armed Forces Pacific";
+     break;
+     case 865:
+     name = "Arkansas";
+     break;
+     case 866:
+     name = "American Samoa";
+     break;
+     case 873:
+     name = "Arizona";
+     break;
+     case 934:
+     name = "California";
+     break;
+     case 948:
+     name = "Colorado";
+     break;
+     case 953:
+     name = "Connecticut";
+     break;
+     case 979:
+     name = "District of Columbia";
+     break;
+     case 981:
+     name = "Delaware";
+     break;
+     case 1074:
+     name = "Florida";
+     break;
+     case 1075:
+     name = "Federated States of Micronesia";
+     break;
+     case 1106:
+     name = "Georgia";
+     break;
+     case 1126:
+     name = "Guam";
+     break;
+     case 1157:
+     name = "Hawaii";
+     break;
+     case 1192:
+     name = "Iowa";
+     break;
+     case 1195:
+     name = "Idaho";
+     break;
+     case 1203:
+     name = "Illinois";
+     break;
+     case 1205:
+     name = "Indiana";
+     break;
+     case 1296:
+     name = "Kansas";
+     break;
+     case 1302:
+     name = "Kentucky";
+     break;
+     case 1321:
+     name = "Louisiana";
+     break;
+     case 1364:
+     name = "Massachusetts";
+     break;
+     case 1367:
+     name = "Maryland";
+     break;
+     case 1368:
+     name = "Maine";
+     break;
+     case 1371:
+     name = "Marshall Islands";
+     break;
+     case 1372:
+     name = "Michigan";
+     break;
+     case 1377:
+     name = "Minnesota";
+     break;
+     case 1378:
+     name = "Missouri";
+     break;
+     case 1379:
+     name = "Northern Mariana Islands";
+     break;
+     case 1382:
+     name = "Mississippi";
+     break;
+     case 1383:
+     name = "Montana";
+     break;
+     case 1409:
+     name = "North Carolina";
+     break;
+     case 1410:
+     name = "North Dakota";
+     break;
+     case 1411:
+     name = "Nebraska";
+     break;
+     case 1414:
+     name = "New Hampshire";
+     break;
+     case 1416:
+     name = "New Jersey";
+     break;
+     case 1419:
+     name = "New Mexico";
+     break;
+     case 1428:
+     name = "Nevada";
+     break;
+     case 1431:
+     name = "New York";
+     break;
+     case 1457:
+     name = "Ohio";
+     break;
+     case 1460:
+     name = "Oklahoma";
+     break;
+     case 1467:
+     name = "Oregon";
+     break;
+     case 1493:
+     name = "Pennsylvania";
+     break;
+     case 1510:
+     name = "Puerto Rico";
+     break;
+     case 1515:
+     name = "Palau";
+     break;
+     case 1587:
+     name = "Rhode Island";
+     break;
+     case 1624:
+     name = "South Carolina";
+     break;
+     case 1625:
+     name = "South Dakota";
+     break;
+     case 1678:
+     name = "Tennessee";
+     break;
+     case 1688:
+     name = "Texas";
+     break;
+     case 1727:
+     name = "Utah";
+     break;
+     case 1751:
+     name = "Virginia";
+     break;
+     case 1759:
+     name = "Virgin Islands";
+     break;
+     case 1770:
+     name = "Vermont";
+     break;
+     case 1794:
+     name = "Washington";
+     break;
+     case 1815:
+     name = "West Virginia";
+     break;
+     case 1802:
+     name = "Wisconsin";
+     break;
+     case 1818:
+     name = "Wyoming";
+     break;
+   }
+ }
+ if (country_code.equals("AD") == true) {
+   switch (region_code2) {
+     case 2:
+     name = "Canillo";
+     break;
+     case 3:
+     name = "Encamp";
+     break;
+     case 4:
+     name = "La Massana";
+     break;
+     case 5:
+     name = "Ordino";
+     break;
+     case 6:
+     name = "Sant Julia de Loria";
+     break;
+     case 7:
+     name = "Andorra la Vella";
+     break;
+     case 8:
+     name = "Escaldes-Engordany";
+     break;
+   }
+ }
+ if (country_code.equals("AE") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Abu Dhabi";
+     break;
+     case 2:
+     name = "Ajman";
+     break;
+     case 3:
+     name = "Dubai";
+     break;
+     case 4:
+     name = "Fujairah";
+     break;
+     case 5:
+     name = "Ras Al Khaimah";
+     break;
+     case 6:
+     name = "Sharjah";
+     break;
+     case 7:
+     name = "Umm Al Quwain";
+     break;
+   }
+ }if (country_code.equals("AF") == true) {
+     switch (region_code2) {
+     case 1:
+     name = "Badakhshan";
+     break;
+     case 2:
+     name = "Badghis";
+     break;
+     case 3:
+     name = "Baghlan";
+     break;
+     case 5:
+     name = "Bamian";
+     break;
+     case 6:
+     name = "Farah";
+     break;
+     case 7:
+     name = "Faryab";
+     break;
+     case 8:
+     name = "Ghazni";
+     break;
+     case 9:
+     name = "Ghowr";
+     break;
+     case 10:
+     name = "Helmand";
+     break;
+     case 11:
+     name = "Herat";
+     break;
+     case 13:
+     name = "Kabol";
+     break;
+     case 14:
+     name = "Kapisa";
+     break;
+     case 17:
+     name = "Lowgar";
+     break;
+     case 18:
+     name = "Nangarhar";
+     break;
+     case 19:
+     name = "Nimruz";
+     break;
+     case 23:
+     name = "Kandahar";
+     break;
+     case 24:
+     name = "Kondoz";
+     break;
+     case 26:
+     name = "Takhar";
+     break;
+     case 27:
+     name = "Vardak";
+     break;
+     case 28:
+     name = "Zabol";
+     break;
+     case 29:
+     name = "Paktika";
+     break;
+     case 30:
+     name = "Balkh";
+     break;
+     case 31:
+     name = "Jowzjan";
+     break;
+     case 32:
+     name = "Samangan";
+     break;
+     case 33:
+     name = "Sar-e Pol";
+     break;
+     case 34:
+     name = "Konar";
+     break;
+     case 35:
+     name = "Laghman";
+     break;
+     case 36:
+     name = "Paktia";
+     break;
+     case 37:
+     name = "Khowst";
+     break;
+     case 38:
+     name = "Nurestan";
+     break;
+     case 39:
+     name = "Oruzgan";
+     break;
+     case 40:
+     name = "Parvan";
+     break;
+     case 41:
+     name = "Daykondi";
+     break;
+     case 42:
+     name = "Panjshir";
+     break;
+   }
+ }
+ if (country_code.equals("AG") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Barbuda";
+     break;
+     case 3:
+     name = "Saint George";
+     break;
+     case 4:
+     name = "Saint John";
+     break;
+     case 5:
+     name = "Saint Mary";
+     break;
+     case 6:
+     name = "Saint Paul";
+     break;
+     case 7:
+     name = "Saint Peter";
+     break;
+     case 8:
+     name = "Saint Philip";
+     break;
+     case 9:
+     name = "Redonda";
+     break;
+   }
+ }if (country_code.equals("AL") == true) {
+     switch (region_code2) {
+     case 40:
+     name = "Berat";
+     break;
+     case 41:
+     name = "Diber";
+     break;
+     case 42:
+     name = "Durres";
+     break;
+     case 43:
+     name = "Elbasan";
+     break;
+     case 44:
+     name = "Fier";
+     break;
+     case 45:
+     name = "Gjirokaster";
+     break;
+     case 46:
+     name = "Korce";
+     break;
+     case 47:
+     name = "Kukes";
+     break;
+     case 48:
+     name = "Lezhe";
+     break;
+     case 49:
+     name = "Shkoder";
+     break;
+     case 50:
+     name = "Tirane";
+     break;
+     case 51:
+     name = "Vlore";
+     break;
+   }
+ }
+ if (country_code.equals("AM") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Aragatsotn";
+     break;
+     case 2:
+     name = "Ararat";
+     break;
+     case 3:
+     name = "Armavir";
+     break;
+     case 4:
+     name = "Geghark'unik'";
+     break;
+     case 5:
+     name = "Kotayk'";
+     break;
+     case 6:
+     name = "Lorri";
+     break;
+     case 7:
+     name = "Shirak";
+     break;
+     case 8:
+     name = "Syunik'";
+     break;
+     case 9:
+     name = "Tavush";
+     break;
+     case 10:
+     name = "Vayots' Dzor";
+     break;
+     case 11:
+     name = "Yerevan";
+     break;
+   }
+ } if (country_code.equals("AO") == true) {
+     switch (region_code2) {
+     case 1:
+     name = "Benguela";
+     break;
+     case 2:
+     name = "Bie";
+     break;
+     case 3:
+     name = "Cabinda";
+     break;
+     case 4:
+     name = "Cuando Cubango";
+     break;
+     case 5:
+     name = "Cuanza Norte";
+     break;
+     case 6:
+     name = "Cuanza Sul";
+     break;
+     case 7:
+     name = "Cunene";
+     break;
+     case 8:
+     name = "Huambo";
+     break;
+     case 9:
+     name = "Huila";
+     break;
+     case 12:
+     name = "Malanje";
+     break;
+     case 13:
+     name = "Namibe";
+     break;
+     case 14:
+     name = "Moxico";
+     break;
+     case 15:
+     name = "Uige";
+     break;
+     case 16:
+     name = "Zaire";
+     break;
+     case 17:
+     name = "Lunda Norte";
+     break;
+     case 18:
+     name = "Lunda Sul";
+     break;
+     case 19:
+     name = "Bengo";
+     break;
+     case 20:
+     name = "Luanda";
+     break;
+   }
+ }
+ if (country_code.equals("AR") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Buenos Aires";
+     break;
+     case 2:
+     name = "Catamarca";
+     break;
+     case 3:
+     name = "Chaco";
+     break;
+     case 4:
+     name = "Chubut";
+     break;
+     case 5:
+     name = "Cordoba";
+     break;
+     case 6:
+     name = "Corrientes";
+     break;
+     case 7:
+     name = "Distrito Federal";
+     break;
+     case 8:
+     name = "Entre Rios";
+     break;
+     case 9:
+     name = "Formosa";
+     break;
+     case 10:
+     name = "Jujuy";
+     break;
+     case 11:
+     name = "La Pampa";
+     break;
+     case 12:
+     name = "La Rioja";
+     break;
+     case 13:
+     name = "Mendoza";
+     break;
+     case 14:
+     name = "Misiones";
+     break;
+     case 15:
+     name = "Neuquen";
+     break;
+     case 16:
+     name = "Rio Negro";
+     break;
+     case 17:
+     name = "Salta";
+     break;
+     case 18:
+     name = "San Juan";
+     break;
+     case 19:
+     name = "San Luis";
+     break;
+     case 20:
+     name = "Santa Cruz";
+     break;
+     case 21:
+     name = "Santa Fe";
+     break;
+     case 22:
+     name = "Santiago del Estero";
+     break;
+     case 23:
+     name = "Tierra del Fuego";
+     break;
+     case 24:
+     name = "Tucuman";
+     break;
+   }
+ } if (country_code.equals("AT") == true) {
+     switch (region_code2) {
+     case 1:
+     name = "Burgenland";
+     break;
+     case 2:
+     name = "Karnten";
+     break;
+     case 3:
+     name = "Niederosterreich";
+     break;
+     case 4:
+     name = "Oberosterreich";
+     break;
+     case 5:
+     name = "Salzburg";
+     break;
+     case 6:
+     name = "Steiermark";
+     break;
+     case 7:
+     name = "Tirol";
+     break;
+     case 8:
+     name = "Vorarlberg";
+     break;
+     case 9:
+     name = "Wien";
+     break;
+   }
+ }
+ if (country_code.equals("AU") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Australian Capital Territory";
+     break;
+     case 2:
+     name = "New South Wales";
+     break;
+     case 3:
+     name = "Northern Territory";
+     break;
+     case 4:
+     name = "Queensland";
+     break;
+     case 5:
+     name = "South Australia";
+     break;
+     case 6:
+     name = "Tasmania";
+     break;
+     case 7:
+     name = "Victoria";
+     break;
+     case 8:
+     name = "Western Australia";
+     break;
+   }
+ }
+ if (country_code.equals("AZ") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Abseron";
+     break;
+     case 2:
+     name = "Agcabadi";
+     break;
+     case 3:
+     name = "Agdam";
+     break;
+     case 4:
+     name = "Agdas";
+     break;
+     case 5:
+     name = "Agstafa";
+     break;
+     case 6:
+     name = "Agsu";
+     break;
+     case 7:
+     name = "Ali Bayramli";
+     break;
+     case 8:
+     name = "Astara";
+     break;
+     case 9:
+     name = "Baki";
+     break;
+     case 10:
+     name = "Balakan";
+     break;
+     case 11:
+     name = "Barda";
+     break;
+     case 12:
+     name = "Beylaqan";
+     break;
+     case 13:
+     name = "Bilasuvar";
+     break;
+     case 14:
+     name = "Cabrayil";
+     break;
+     case 15:
+     name = "Calilabad";
+     break;
+     case 16:
+     name = "Daskasan";
+     break;
+     case 17:
+     name = "Davaci";
+     break;
+     case 18:
+     name = "Fuzuli";
+     break;
+     case 19:
+     name = "Gadabay";
+     break;
+     case 20:
+     name = "Ganca";
+     break;
+     case 21:
+     name = "Goranboy";
+     break;
+     case 22:
+     name = "Goycay";
+     break;
+     case 23:
+     name = "Haciqabul";
+     break;
+     case 24:
+     name = "Imisli";
+     break;
+     case 25:
+     name = "Ismayilli";
+     break;
+     case 26:
+     name = "Kalbacar";
+     break;
+     case 27:
+     name = "Kurdamir";
+     break;
+     case 28:
+     name = "Lacin";
+     break;
+     case 29:
+     name = "Lankaran";
+     break;
+     case 30:
+     name = "Lankaran";
+     break;
+     case 31:
+     name = "Lerik";
+     break;
+     case 32:
+     name = "Masalli";
+     break;
+     case 33:
+     name = "Mingacevir";
+     break;
+     case 34:
+     name = "Naftalan";
+     break;
+     case 35:
+     name = "Naxcivan";
+     break;
+     case 36:
+     name = "Neftcala";
+     break;
+     case 37:
+     name = "Oguz";
+     break;
+     case 38:
+     name = "Qabala";
+     break;
+     case 39:
+     name = "Qax";
+     break;
+     case 40:
+     name = "Qazax";
+     break;
+     case 41:
+     name = "Qobustan";
+     break;
+     case 42:
+     name = "Quba";
+     break;
+     case 43:
+     name = "Qubadli";
+     break;
+     case 44:
+     name = "Qusar";
+     break;
+     case 45:
+     name = "Saatli";
+     break;
+     case 46:
+     name = "Sabirabad";
+     break;
+     case 47:
+     name = "Saki";
+     break;
+     case 48:
+     name = "Saki";
+     break;
+     case 49:
+     name = "Salyan";
+     break;
+     case 50:
+     name = "Samaxi";
+     break;
+     case 51:
+     name = "Samkir";
+     break;
+     case 52:
+     name = "Samux";
+     break;
+     case 53:
+     name = "Siyazan";
+     break;
+     case 54:
+     name = "Sumqayit";
+     break;
+     case 55:
+     name = "Susa";break;
+     case 56:
+     name = "Susa";
+     break;
+     case 57:
+     name = "Tartar";
+     break;
+     case 58:
+     name = "Tovuz";
+     break;
+     case 59:
+     name = "Ucar";
+     break;
+     case 60:
+     name = "Xacmaz";
+     break;
+     case 61:
+     name = "Xankandi";
+     break;
+     case 62:
+     name = "Xanlar";
+     break;
+     case 63:
+     name = "Xizi";
+     break;
+     case 64:
+     name = "Xocali";
+     break;
+     case 65:
+     name = "Xocavand";
+     break;
+     case 66:
+     name = "Yardimli";
+     break;
+     case 67:
+     name = "Yevlax";
+     break;
+     case 68:
+     name = "Yevlax";
+     break;
+     case 69:
+     name = "Zangilan";
+     break;
+     case 70:
+     name = "Zaqatala";
+     break;
+     case 71:
+     name = "Zardab";
+     break;
+   }
+ }
+ if (country_code.equals("BA") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Federation of Bosnia and Herzegovina";
+     break;
+     case 2:
+     name = "Republika Srpska";
+     break;
+   }
+ } if (country_code.equals("BB") == true) {
+     switch (region_code2) {
+     case 1:
+     name = "Christ Church";
+     break;
+     case 2:
+     name = "Saint Andrew";
+     break;
+     case 3:
+     name = "Saint George";
+     break;
+     case 4:
+     name = "Saint James";
+     break;
+     case 5:
+     name = "Saint John";
+     break;
+     case 6:
+     name = "Saint Joseph";
+     break;
+     case 7:
+     name = "Saint Lucy";
+     break;
+     case 8:
+     name = "Saint Michael";
+     break;
+     case 9:
+     name = "Saint Peter";
+     break;
+     case 10:
+     name = "Saint Philip";
+     break;
+     case 11:
+     name = "Saint Thomas";
+     break;
+   }
+ }
+ if (country_code.equals("BD") == true) {
+   switch (region_code2) {
+     case 81:
+     name = "Dhaka";
+     break;
+     case 82:
+     name = "Khulna";
+     break;
+     case 83:
+     name = "Rajshahi";
+     break;
+     case 84:
+     name = "Chittagong";
+     break;
+     case 85:
+     name = "Barisal";
+     break;
+     case 86:
+     name = "Sylhet";
+     break;
+   }
+ }
+ if (country_code.equals("BE") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Antwerpen";
+     break;
+     case 3:
+     name = "Hainaut";
+     break;
+     case 4:
+     name = "Liege";
+     break;
+     case 5:
+     name = "Limburg";
+     break;
+     case 6:
+     name = "Luxembourg";
+     break;
+     case 7:
+     name = "Namur";
+     break;
+     case 8:
+     name = "Oost-Vlaanderen";
+     break;
+     case 9:
+     name = "West-Vlaanderen";
+     break;
+     case 10:
+     name = "Brabant Wallon";
+     break;
+     case 11:
+     name = "Brussels Hoofdstedelijk Gewest";
+     break;
+     case 12:
+     name = "Vlaams-Brabant";
+     break;
+     case 13:
+     name = "Flanders";
+     break;
+     case 14:
+     name = "Wallonia";
+     break;
+   }
+ }  if (country_code.equals("BF") == true) {
+     switch (region_code2) {
+     case 15:
+     name = "Bam";
+     break;
+     case 19:
+     name = "Boulkiemde";
+     break;
+     case 20:
+     name = "Ganzourgou";
+     break;
+     case 21:
+     name = "Gnagna";
+     break;
+     case 28:
+     name = "Kouritenga";
+     break;
+     case 33:
+     name = "Oudalan";
+     break;
+     case 34:
+     name = "Passore";
+     break;
+     case 36:
+     name = "Sanguie";
+     break;
+     case 40:
+     name = "Soum";
+     break;
+     case 42:
+     name = "Tapoa";
+     break;
+     case 44:
+     name = "Zoundweogo";
+     break;
+     case 45:
+     name = "Bale";
+     break;
+     case 46:
+     name = "Banwa";
+     break;
+     case 47:
+     name = "Bazega";
+     break;
+     case 48:
+     name = "Bougouriba";
+     break;
+     case 49:
+     name = "Boulgou";
+     break;
+     case 50:
+     name = "Gourma";
+     break;
+     case 51:
+     name = "Houet";
+     break;
+     case 52:
+     name = "Ioba";
+     break;
+     case 53:
+     name = "Kadiogo";
+     break;
+     case 54:
+     name = "Kenedougou";
+     break;
+     case 55:
+     name = "Komoe";
+     break;
+     case 56:
+     name = "Komondjari";
+     break;
+     case 57:
+     name = "Kompienga";
+     break;
+     case 58:
+     name = "Kossi";
+     break;
+     case 59:
+     name = "Koulpelogo";
+     break;
+     case 60:
+     name = "Kourweogo";
+     break;
+     case 61:
+     name = "Leraba";
+     break;
+     case 62:
+     name = "Loroum";
+     break;
+     case 63:
+     name = "Mouhoun";
+     break;
+     case 64:
+     name = "Namentenga";
+     break;
+     case 65:
+     name = "Naouri";
+     break;
+     case 66:
+     name = "Nayala";
+     break;
+     case 67:
+     name = "Noumbiel";
+     break;
+     case 68:
+     name = "Oubritenga";
+     break;
+     case 69:
+     name = "Poni";
+     break;
+     case 70:
+     name = "Sanmatenga";
+     break;
+     case 71:
+     name = "Seno";
+     break;
+     case 72:
+     name = "Sissili";
+     break;
+     case 73:
+     name = "Sourou";
+     break;
+     case 74:
+     name = "Tuy";
+     break;
+     case 75:
+     name = "Yagha";
+     break;
+     case 76:
+     name = "Yatenga";
+     break;
+     case 77:
+     name = "Ziro";
+     break;
+     case 78:
+     name = "Zondoma";
+     break;
+   }
+ }
+ if (country_code.equals("BG") == true) {
+   switch (region_code2) {
+     case 33:
+     name = "Mikhaylovgrad";
+     break;
+     case 38:
+     name = "Blagoevgrad";
+     break;
+     case 39:
+     name = "Burgas";
+     break;
+     case 40:
+     name = "Dobrich";
+     break;
+     case 41:
+     name = "Gabrovo";
+     break;
+     case 42:
+     name = "Grad Sofiya";
+     break;
+     case 43:
+     name = "Khaskovo";
+     break;
+     case 44:
+     name = "Kurdzhali";
+     break;
+     case 45:
+     name = "Kyustendil";
+     break;
+     case 46:
+     name = "Lovech";
+     break;
+     case 47:
+     name = "Montana";
+     break;
+     case 48:
+     name = "Pazardzhik";
+     break;
+     case 49:
+     name = "Pernik";
+     break;
+     case 50:
+     name = "Pleven";
+     break;
+     case 51:
+     name = "Plovdiv";
+     break;
+     case 52:
+     name = "Razgrad";
+     break;
+     case 53:
+     name = "Ruse";
+     break;
+     case 54:
+     name = "Shumen";
+     break;
+     case 55:
+     name = "Silistra";
+     break;
+     case 56:
+     name = "Sliven";
+     break;
+     case 57:
+     name = "Smolyan";
+     break;
+     case 58:
+     name = "Sofiya";
+     break;
+     case 59:
+     name = "Stara Zagora";
+     break;
+     case 60:
+     name = "Turgovishte";
+     break;
+     case 61:
+     name = "Varna";
+     break;
+     case 62:
+     name = "Veliko Turnovo";
+     break;
+     case 63:
+     name = "Vidin";
+     break;
+     case 64:
+     name = "Vratsa";
+     break;
+     case 65:
+     name = "Yambol";
+     break;
+   }
+ }if (country_code.equals("BH") == true) {
+     switch (region_code2) {
+     case 1:
+     name = "Al Hadd";
+     break;
+     case 2:
+     name = "Al Manamah";
+     break;
+     case 5:
+     name = "Jidd Hafs";
+     break;
+     case 6:
+     name = "Sitrah";
+     break;
+     case 8:
+     name = "Al Mintaqah al Gharbiyah";
+     break;
+     case 9:
+     name = "Mintaqat Juzur Hawar";
+     break;
+     case 10:
+     name = "Al Mintaqah ash Shamaliyah";
+     break;
+     case 11:
+     name = "Al Mintaqah al Wusta";
+     break;
+     case 12:
+     name = "Madinat";
+     break;
+     case 13:
+     name = "Ar Rifa";
+     break;
+     case 14:
+     name = "Madinat Hamad";
+     break;
+     case 15:
+     name = "Al Muharraq";
+     break;
+     case 16:
+     name = "Al Asimah";
+     break;
+     case 17:
+     name = "Al Janubiyah";
+     break;
+     case 18:
+     name = "Ash Shamaliyah";
+     break;
+     case 19:
+     name = "Al Wusta";
+     break;
+   }
+ } if (country_code.equals("BI") == true) {
+     switch (region_code2) {
+     case 2:
+     name = "Bujumbura";
+     break;
+     case 9:
+     name = "Bubanza";
+     break;
+     case 10:
+     name = "Bururi";
+     break;
+     case 11:
+     name = "Cankuzo";
+     break;
+     case 12:
+     name = "Cibitoke";
+     break;
+     case 13:
+     name = "Gitega";
+     break;
+     case 14:
+     name = "Karuzi";
+     break;
+     case 15:
+     name = "Kayanza";
+     break;
+     case 16:
+     name = "Kirundo";
+     break;
+     case 17:
+     name = "Makamba";
+     break;
+     case 18:
+     name = "Muyinga";
+     break;
+     case 19:
+     name = "Ngozi";
+     break;
+     case 20:
+     name = "Rutana";
+     break;
+     case 21:
+     name = "Ruyigi";
+     break;
+     case 22:
+     name = "Muramvya";
+     break;
+     case 23:
+     name = "Mwaro";
+     break;
+   }
+ }
+ if (country_code.equals("BJ") == true) {
+   switch (region_code2) {
+     case 7:
+     name = "Alibori";
+     break;
+     case 8:
+     name = "Atakora";
+     break;
+     case 9:
+     name = "Atlanyique";
+     break;
+     case 10:
+     name = "Borgou";
+     break;
+     case 11:
+     name = "Collines";
+     break;
+     case 12:
+     name = "Kouffo";
+     break;
+     case 13:
+     name = "Donga";
+     break;
+     case 14:
+     name = "Littoral";
+     break;
+     case 15:
+     name = "Mono";
+     break;
+     case 16:
+     name = "Oueme";
+     break;
+     case 17:
+     name = "Plateau";
+     break;
+     case 18:
+     name = "Zou";
+     break;
+   }
+ } if (country_code.equals("BM") == true) {
+     switch (region_code2) {
+     case 1:
+     name = "Devonshire";
+     break;
+     case 2:
+     name = "Hamilton";
+     break;
+     case 3:
+     name = "Hamilton";
+     break;
+     case 4:
+     name = "Paget";
+     break;
+     case 5:
+     name = "Pembroke";
+     break;
+     case 6:
+     name = "Saint George";
+     break;
+     case 7:
+     name = "Saint George's";
+     break;
+     case 8:
+     name = "Sandys";
+     break;
+     case 9:
+     name = "Smiths";
+     break;
+     case 10:
+     name = "Southampton";
+     break;
+     case 11:
+     name = "Warwick";
+     break;
+   }
+ }
+ if (country_code.equals("BN") == true) {
+   switch (region_code2) {
+     case 7:
+     name = "Alibori";
+     break;
+     case 8:
+     name = "Belait";
+     break;
+     case 9:
+     name = "Brunei and Muara";
+     break;
+     case 10:
+     name = "Temburong";
+     break;
+     case 11:
+     name = "Collines";
+     break;
+     case 12:
+     name = "Kouffo";
+     break;
+     case 13:
+     name = "Donga";
+     break;
+     case 14:
+     name = "Littoral";
+     break;
+     case 15:
+     name = "Tutong";
+     break;
+     case 16:
+     name = "Oueme";
+     break;
+     case 17:
+     name = "Plateau";
+     break;
+     case 18:
+     name = "Zou";
+     break;
+   }
+ }  if (country_code.equals("BO") == true) {
+     switch (region_code2) {
+     case 1:
+     name = "Chuquisaca";
+     break;
+     case 2:
+     name = "Cochabamba";
+     break;
+     case 3:
+     name = "El Beni";
+     break;
+     case 4:
+     name = "La Paz";
+     break;
+     case 5:
+     name = "Oruro";
+     break;
+     case 6:
+     name = "Pando";
+     break;
+     case 7:
+     name = "Potosi";
+     break;
+     case 8:
+     name = "Santa Cruz";
+     break;
+     case 9:
+     name = "Tarija";
+     break;
+   }
+ }
+ if (country_code.equals("BR") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Acre";
+     break;
+     case 2:
+     name = "Alagoas";
+     break;
+     case 3:
+     name = "Amapa";
+     break;
+     case 4:
+     name = "Amazonas";
+     break;
+     case 5:
+     name = "Bahia";
+     break;
+     case 6:
+     name = "Ceara";
+     break;
+     case 7:
+     name = "Distrito Federal";
+     break;
+     case 8:
+     name = "Espirito Santo";
+     break;
+     case 11:
+     name = "Mato Grosso do Sul";
+     break;
+     case 13:
+     name = "Maranhao";
+     break;
+     case 14:
+     name = "Mato Grosso";
+     break;
+     case 15:
+     name = "Minas Gerais";
+     break;
+     case 16:
+     name = "Para";
+     break;
+     case 17:
+     name = "Paraiba";
+     break;
+     case 18:
+     name = "Parana";
+     break;
+     case 20:
+     name = "Piaui";
+     break;
+     case 21:
+     name = "Rio de Janeiro";
+     break;
+     case 22:
+     name = "Rio Grande do Norte";
+     break;
+     case 23:
+     name = "Rio Grande do Sul";
+     break;
+     case 24:
+     name = "Rondonia";
+     break;
+     case 25:
+     name = "Roraima";
+     break;
+     case 26:
+     name = "Santa Catarina";
+     break;
+     case 27:
+     name = "Sao Paulo";
+     break;
+     case 28:
+     name = "Sergipe";
+     break;
+     case 29:
+     name = "Goias";
+     break;
+     case 30:
+     name = "Pernambuco";
+     break;
+     case 31:
+     name = "Tocantins";
+     break;
+   }
+ }
+ if (country_code.equals("BS") == true) {
+   switch (region_code2) {
+     case 5:
+     name = "Bimini";
+     break;
+     case 6:
+     name = "Cat Island";
+     break;
+     case 10:
+     name = "Exuma";
+     break;
+     case 13:
+     name = "Inagua";
+     break;
+     case 15:
+     name = "Long Island";
+     break;
+     case 16:
+     name = "Mayaguana";
+     break;
+     case 18:
+     name = "Ragged Island";
+     break;
+     case 22:
+     name = "Harbour Island";
+     break;
+     case 23:
+     name = "New Providence";
+     break;
+     case 24:
+     name = "Acklins and Crooked Islands";
+     break;
+     case 25:
+     name = "Freeport";
+     break;
+     case 26:
+     name = "Fresh Creek";
+     break;
+     case 27:
+     name = "Governor's Harbour";
+     break;
+     case 28:
+     name = "Green Turtle Cay";
+     break;
+     case 29:
+     name = "High Rock";
+     break;
+     case 30:
+     name = "Kemps Bay";
+     break;
+     case 31:
+     name = "Marsh Harbour";
+     break;
+     case 32:
+     name = "Nichollstown and Berry Islands";
+     break;
+     case 33:
+     name = "Rock Sound";
+     break;
+     case 34:
+     name = "Sandy Point";
+     break;
+     case 35:
+     name = "San Salvador and Rum Cay";
+     break;
+   }
+ }if (country_code.equals("BT") == true) {
+     switch (region_code2) {
+     case 5:
+     name = "Bumthang";
+     break;
+     case 6:
+     name = "Chhukha";
+     break;
+     case 7:
+     name = "Chirang";
+     break;
+     case 8:
+     name = "Daga";
+     break;
+     case 9:
+     name = "Geylegphug";
+     break;
+     case 10:
+     name = "Ha";
+     break;
+     case 11:
+     name = "Lhuntshi";
+     break;
+     case 12:
+     name = "Mongar";
+     break;
+     case 13:
+     name = "Paro";
+     break;
+     case 14:
+     name = "Pemagatsel";
+     break;
+     case 15:
+     name = "Punakha";
+     break;
+     case 16:
+     name = "Samchi";
+     break;
+     case 17:
+     name = "Samdrup";
+     break;
+     case 18:
+     name = "Shemgang";
+     break;
+     case 19:
+     name = "Tashigang";
+     break;
+     case 20:
+     name = "Thimphu";
+     break;
+     case 21:
+     name = "Tongsa";
+     break;
+     case 22:
+     name = "Wangdi Phodrang";
+     break;
+   }
+ }
+ if (country_code.equals("BW") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Central";
+     break;
+     case 3:
+     name = "Ghanzi";
+     break;
+     case 4:
+     name = "Kgalagadi";
+     break;
+     case 5:
+     name = "Kgatleng";
+     break;
+     case 6:
+     name = "Kweneng";
+     break;
+     case 8:
+     name = "North-East";
+     break;
+     case 9:
+     name = "South-East";
+     break;
+     case 10:
+     name = "Southern";
+     break;
+     case 11:
+     name = "North-West";
+     break;
+   }
+ }
+ if (country_code.equals("BY") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Brestskaya Voblasts'";
+     break;
+     case 2:
+     name = "Homyel'skaya Voblasts'";
+     break;
+     case 3:
+     name = "Hrodzyenskaya Voblasts'";
+     break;
+     case 4:
+     name = "Minsk";
+     break;
+     case 5:
+     name = "Minskaya Voblasts'";
+     break;
+     case 6:
+     name = "Mahilyowskaya Voblasts'";
+     break;
+     case 7:
+     name = "Vitsyebskaya Voblasts'";
+     break;
+   }
+ }
+ if (country_code.equals("BZ") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Belize";
+     break;
+     case 2:
+     name = "Cayo";
+     break;
+     case 3:
+     name = "Corozal";
+     break;
+     case 4:
+     name = "Orange Walk";
+     break;
+     case 5:
+     name = "Stann Creek";
+     break;
+     case 6:
+     name = "Toledo";
+     break;
+   }
+ } if (country_code.equals("CD") == true) {
+     switch (region_code2) {
+     case 1:
+     name = "Bandundu";
+     break;
+     case 2:
+     name = "Equateur";
+     break;
+     case 4:
+     name = "Kasai-Oriental";
+     break;
+     case 5:
+     name = "Katanga";
+     break;
+     case 6:
+     name = "Kinshasa";
+     break;
+     case 8:
+     name = "Bas-Congo";
+     break;
+     case 9:
+     name = "Orientale";
+     break;
+     case 10:
+     name = "Maniema";
+     break;
+     case 11:
+     name = "Nord-Kivu";
+     break;
+     case 12:
+     name = "Sud-Kivu";
+     break;
+   }
+ }
+ if (country_code.equals("CF") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Bamingui-Bangoran";
+     break;
+     case 2:
+     name = "Basse-Kotto";
+     break;
+     case 3:
+     name = "Haute-Kotto";
+     break;
+     case 4:
+     name = "Mambere-Kadei";
+     break;
+     case 5:
+     name = "Haut-Mbomou";
+     break;
+     case 6:
+     name = "Kemo";
+     break;
+     case 7:
+     name = "Lobaye";
+     break;
+     case 8:
+     name = "Mbomou";
+     break;
+     case 9:
+     name = "Nana-Mambere";
+     break;
+     case 11:
+     name = "Ouaka";
+     break;
+     case 12:
+     name = "Ouham";
+     break;
+     case 13:
+     name = "Ouham-Pende";
+     break;
+     case 14:
+     name = "Cuvette-Ouest";
+     break;
+     case 15:
+     name = "Nana-Grebizi";
+     break;
+     case 16:
+     name = "Sangha-Mbaere";
+     break;
+     case 17:
+     name = "Ombella-Mpoko";
+     break;
+     case 18:
+     name = "Bangui";
+     break;
+   }
+ }
+ if (country_code.equals("CG") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Bouenza";
+     break;
+     case 4:
+     name = "Kouilou";
+     break;
+     case 5:
+     name = "Lekoumou";
+     break;
+     case 6:
+     name = "Likouala";
+     break;
+     case 7:
+     name = "Niari";
+     break;
+     case 8:
+     name = "Plateaux";
+     break;
+     case 10:
+     name = "Sangha";
+     break;
+     case 11:
+     name = "Pool";
+     break;
+     case 12:
+     name = "Brazzaville";
+     break;
+     case 13:
+     name = "Cuvette";
+     break;
+     case 14:
+     name = "Cuvette-Ouest";
+     break;
+   }
+ } if (country_code.equals("CH") == true) {
+     switch (region_code2) {
+     case 1:
+     name = "Aargau";
+     break;
+     case 2:
+     name = "Ausser-Rhoden";
+     break;
+     case 3:
+     name = "Basel-Landschaft";
+     break;
+     case 4:
+     name = "Basel-Stadt";
+     break;
+     case 5:
+     name = "Bern";
+     break;
+     case 6:
+     name = "Fribourg";
+     break;
+     case 7:
+     name = "Geneve";
+     break;
+     case 8:
+     name = "Glarus";
+     break;
+     case 9:
+     name = "Graubunden";
+     break;
+     case 10:
+     name = "Inner-Rhoden";
+     break;
+     case 11:
+     name = "Luzern";
+     break;
+     case 12:
+     name = "Neuchatel";
+     break;
+     case 13:
+     name = "Nidwalden";
+     break;
+     case 14:
+     name = "Obwalden";
+     break;
+     case 15:
+     name = "Sankt Gallen";
+     break;
+     case 16:
+     name = "Schaffhausen";
+     break;
+     case 17:
+     name = "Schwyz";
+     break;
+     case 18:
+     name = "Solothurn";
+     break;
+     case 19:
+     name = "Thurgau";
+     break;
+     case 20:
+     name = "Ticino";
+     break;
+     case 21:
+     name = "Uri";
+     break;
+     case 22:
+     name = "Valais";
+     break;
+     case 23:
+     name = "Vaud";
+     break;
+     case 24:
+     name = "Zug";
+     break;
+     case 25:
+     name = "Zurich";
+     break;
+     case 26:
+     name = "Jura";
+     break;
+   }
+ }
+ if (country_code.equals("CI") == true) {
+   switch (region_code2) {
+     case 74:
+     name = "Agneby";
+     break;
+     case 75:
+     name = "Bafing";
+     break;
+     case 76:
+     name = "Bas-Sassandra";
+     break;
+     case 77:
+     name = "Denguele";
+     break;
+     case 78:
+     name = "Dix-Huit Montagnes";
+     break;
+     case 79:
+     name = "Fromager";
+     break;
+     case 80:
+     name = "Haut-Sassandra";
+     break;
+     case 81:
+     name = "Lacs";
+     break;
+     case 82:
+     name = "Lagunes";
+     break;
+     case 83:
+     name = "Marahoue";
+     break;
+     case 84:
+     name = "Moyen-Cavally";
+     break;
+     case 85:
+     name = "Moyen-Comoe";
+     break;
+     case 86:
+     name = "N'zi-Comoe";
+     break;
+     case 87:
+     name = "Savanes";
+     break;
+     case 88:
+     name = "Sud-Bandama";
+     break;
+     case 89:
+     name = "Sud-Comoe";
+     break;
+     case 90:
+     name = "Vallee du Bandama";
+     break;
+     case 91:
+     name = "Worodougou";
+     break;
+     case 92:
+     name = "Zanzan";
+     break;
+   }
+ }
+ if (country_code.equals("CL") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Valparaiso";
+     break;
+     case 2:
+     name = "Aisen del General Carlos Ibanez del Campo";
+     break;
+     case 3:
+     name = "Antofagasta";
+     break;
+     case 4:
+     name = "Araucania";
+     break;
+     case 5:
+     name = "Atacama";
+     break;
+     case 6:
+     name = "Bio-Bio";
+     break;
+     case 7:
+     name = "Coquimbo";
+     break;
+     case 8:
+     name = "Libertador General Bernardo O'Higgins";
+     break;
+     case 9:
+     name = "Los Lagos";
+     break;
+     case 10:
+     name = "Magallanes y de la Antartica Chilena";
+     break;
+     case 11:
+     name = "Maule";
+     break;
+     case 12:
+     name = "Region Metropolitana";
+     break;
+     case 13:
+     name = "Tarapaca";
+     break;
+     case 14:
+     name = "Los Lagos";
+     break;
+     case 15:
+     name = "Tarapaca";
+     break;
+     case 16:
+     name = "Arica y Parinacota";
+     break;
+     case 17:
+     name = "Los Rios";
+     break;
+   }
+ }if (country_code.equals("CM") == true) {
+     switch (region_code2) {
+     case 4:
+     name = "Est";
+     break;
+     case 5:
+     name = "Littoral";
+     break;
+     case 7:
+     name = "Nord-Ouest";
+     break;
+     case 8:
+     name = "Ouest";
+     break;
+     case 9:
+     name = "Sud-Ouest";
+     break;
+     case 10:
+     name = "Adamaoua";
+     break;
+     case 11:
+     name = "Centre";
+     break;
+     case 12:
+     name = "Extreme-Nord";
+     break;
+     case 13:
+     name = "Nord";
+     break;
+     case 14:
+     name = "Sud";
+     break;
+   }
+ }
+ if (country_code.equals("CN") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Anhui";
+     break;
+     case 2:
+     name = "Zhejiang";
+     break;
+     case 3:
+     name = "Jiangxi";
+     break;
+     case 4:
+     name = "Jiangsu";
+     break;
+     case 5:
+     name = "Jilin";
+     break;
+     case 6:
+     name = "Qinghai";
+     break;
+     case 7:
+     name = "Fujian";
+     break;
+     case 8:
+     name = "Heilongjiang";
+     break;
+     case 9:
+     name = "Henan";
+     break;
+     case 10:
+     name = "Hebei";
+     break;
+     case 11:
+     name = "Hunan";
+     break;
+     case 12:
+     name = "Hubei";
+     break;
+     case 13:
+     name = "Xinjiang";
+     break;
+     case 14:
+     name = "Xizang";
+     break;
+     case 15:
+     name = "Gansu";
+     break;
+     case 16:
+     name = "Guangxi";
+     break;
+     case 18:
+     name = "Guizhou";
+     break;
+     case 19:
+     name = "Liaoning";
+     break;
+     case 20:
+     name = "Nei Mongol";
+     break;
+     case 21:
+     name = "Ningxia";
+     break;
+     case 22:
+     name = "Beijing";
+     break;
+     case 23:
+     name = "Shanghai";
+     break;
+     case 24:
+     name = "Shanxi";
+     break;
+     case 25:
+     name = "Shandong";
+     break;
+     case 26:name = "Shaanxi";
+     break;
+     case 28:
+     name = "Tianjin";
+     break;
+     case 29:
+     name = "Yunnan";
+     break;
+     case 30:
+     name = "Guangdong";
+     break;
+     case 31:
+     name = "Hainan";
+     break;
+     case 32:
+     name = "Sichuan";
+     break;
+     case 33:
+     name = "Chongqing";
+     break;
+   }
+ }
+ if (country_code.equals("CO") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Amazonas";
+     break;
+     case 2:
+     name = "Antioquia";
+     break;
+     case 3:
+     name = "Arauca";
+     break;
+     case 4:
+     name = "Atlantico";
+     break;
+     case 8:
+     name = "Caqueta";
+     break;
+     case 9:
+     name = "Cauca";
+     break;
+     case 10:
+     name = "Cesar";
+     break;
+     case 11:
+     name = "Choco";
+     break;
+     case 12:
+     name = "Cordoba";
+     break;
+     case 14:
+     name = "Guaviare";
+     break;
+     case 15:
+     name = "Guainia";
+     break;
+     case 16:
+     name = "Huila";
+     break;
+     case 17:
+     name = "La Guajira";
+     break;
+     case 19:
+     name = "Meta";
+     break;
+     case 20:
+     name = "Narino";
+     break;
+     case 21:
+     name = "Norte de Santander";
+     break;
+     case 22:
+     name = "Putumayo";
+     break;
+     case 23:
+     name = "Quindio";
+     break;
+     case 24:
+     name = "Risaralda";
+     break;
+     case 25:
+     name = "San Andres y Providencia";
+     break;
+     case 26:
+     name = "Santander";
+     break;
+     case 27:
+     name = "Sucre";
+     break;
+     case 28:
+     name = "Tolima";
+     break;
+     case 29:
+     name = "Valle del Cauca";
+     break;
+     case 30:
+     name = "Vaupes";
+     break;
+     case 31:
+     name = "Vichada";
+     break;
+     case 32:
+     name = "Casanare";
+     break;
+     case 33:
+     name = "Cundinamarca";
+     break;
+     case 34:
+     name = "Distrito Especial";
+     break;
+     case 35:
+     name = "Bolivar";
+     break;
+     case 36:
+     name = "Boyaca";
+     break;
+     case 37:
+     name = "Caldas";
+     break;
+     case 38:
+     name = "Magdalena";
+     break;
+   }
+ }
+ if (country_code.equals("CR") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Alajuela";
+     break;
+     case 2:
+     name = "Cartago";
+     break;
+     case 3:
+     name = "Guanacaste";
+     break;
+     case 4:
+     name = "Heredia";
+     break;
+     case 6:
+     name = "Limon";
+     break;
+     case 7:
+     name = "Puntarenas";
+     break;
+     case 8:
+     name = "San Jose";
+     break;
+   }
+ }if (country_code.equals("CU") == true) {
+     switch (region_code2) {
+     case 1:
+     name = "Pinar del Rio";
+     break;
+     case 2:
+     name = "Ciudad de la Habana";
+     break;
+     case 3:
+     name = "Matanzas";
+     break;
+     case 4:
+     name = "Isla de la Juventud";
+     break;
+     case 5:
+     name = "Camaguey";
+     break;
+     case 7:
+     name = "Ciego de Avila";
+     break;
+     case 8:
+     name = "Cienfuegos";
+     break;
+     case 9:
+     name = "Granma";
+     break;
+     case 10:
+     name = "Guantanamo";
+     break;
+     case 11:
+     name = "La Habana";
+     break;
+     case 12:
+     name = "Holguin";
+     break;
+     case 13:
+     name = "Las Tunas";
+     break;
+     case 14:
+     name = "Sancti Spiritus";
+     break;
+     case 15:
+     name = "Santiago de Cuba";
+     break;
+     case 16:
+     name = "Villa Clara";
+     break;
+   }
+ }
+ if (country_code.equals("CV") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Boa Vista";
+     break;
+     case 2:
+     name = "Brava";
+     break;
+     case 4:
+     name = "Maio";
+     break;
+     case 5:
+     name = "Paul";
+     break;
+     case 7:
+     name = "Ribeira Grande";
+     break;
+     case 8:
+     name = "Sal";
+     break;
+     case 10:
+     name = "Sao Nicolau";
+     break;
+     case 11:
+     name = "Sao Vicente";
+     break;
+     case 13:
+     name = "Mosteiros";
+     break;
+     case 14:
+     name = "Praia";
+     break;
+     case 15:
+     name = "Santa Catarina";
+     break;
+     case 16:
+     name = "Santa Cruz";
+     break;
+     case 17:
+     name = "Sao Domingos";
+     break;
+     case 18:
+     name = "Sao Filipe";
+     break;
+     case 19:
+     name = "Sao Miguel";
+     break;
+     case 20:
+     name = "Tarrafal";
+     break;
+   }
+ }
+ if (country_code.equals("CY") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Famagusta";
+     break;
+     case 2:
+     name = "Kyrenia";
+     break;
+     case 3:
+     name = "Larnaca";
+     break;
+     case 4:
+     name = "Nicosia";
+     break;
+     case 5:
+     name = "Limassol";
+     break;
+     case 6:
+     name = "Paphos";
+     break;
+   }
+ }
+ if (country_code.equals("CZ") == true) {
+   switch (region_code2) {
+     case 52:
+     name = "Hlavni mesto Praha";
+     break;
+     case 78:
+     name = "Jihomoravsky kraj";
+     break;
+     case 79:
+     name = "Jihocesky kraj";
+     break;
+     case 80:
+     name = "Vysocina";
+     break;
+     case 81:
+     name = "Karlovarsky kraj";
+     break;
+     case 82:
+     name = "Kralovehradecky kraj";
+     break;
+     case 83:
+     name = "Liberecky kraj";
+     break;
+     case 84:
+     name = "Olomoucky kraj";
+     break;
+     case 85:
+     name = "Moravskoslezsky kraj";
+     break;
+     case 86:
+     name = "Pardubicky kraj";
+     break;
+     case 87:
+     name = "Plzensky kraj";
+     break;
+     case 88:
+     name = "Stredocesky kraj";
+     break;
+     case 89:
+     name = "Ustecky kraj";
+     break;
+     case 90:
+     name = "Zlinsky kraj";
+     break;
+   }
+ }
+ if (country_code.equals("DE") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Baden-Wurttemberg";
+     break;
+     case 2:
+     name = "Bayern";
+     break;
+     case 3:
+     name = "Bremen";
+     break;
+     case 4:
+     name = "Hamburg";
+     break;
+     case 5:
+     name = "Hessen";
+     break;
+     case 6:
+     name = "Niedersachsen";
+     break;
+     case 7:
+     name = "Nordrhein-Westfalen";
+     break;
+     case 8:
+     name = "Rheinland-Pfalz";
+     break;
+     case 9:
+     name = "Saarland";
+     break;
+     case 10:
+     name = "Schleswig-Holstein";
+     break;
+     case 11:
+     name = "Brandenburg";
+     break;
+     case 12:
+     name = "Mecklenburg-Vorpommern";
+     break;
+     case 13:
+     name = "Sachsen";
+     break;
+     case 14:
+     name = "Sachsen-Anhalt";
+     break;
+     case 15:
+     name = "Thuringen";
+     break;
+     case 16:
+     name = "Berlin";
+     break;
+   }
+ }
+ if (country_code.equals("DJ") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Ali Sabieh";
+     break;
+     case 4:
+     name = "Obock";
+     break;
+     case 5:
+     name = "Tadjoura";
+     break;
+     case 6:
+     name = "Dikhil";
+     break;
+     case 7:
+     name = "Djibouti";
+     break;
+     case 8:
+     name = "Arta";
+     break;
+   }
+ }
+ if (country_code.equals("DK") == true) {
+   switch (region_code2) {
+     case 17:
+     name = "Hovedstaden";
+     break;
+     case 18:
+     name = "Midtjylland";
+     break;
+     case 19:
+     name = "Nordjylland";
+     break;
+     case 20:
+     name = "Sjelland";
+     break;
+     case 21:
+     name = "Syddanmark";
+     break;
+   }
+ }
+ if (country_code.equals("DM") == true) {
+   switch (region_code2) {
+     case 2:
+     name = "Saint Andrew";
+     break;
+     case 3:
+     name = "Saint David";
+     break;
+     case 4:
+     name = "Saint George";
+     break;
+     case 5:
+     name = "Saint John";
+     break;
+     case 6:
+     name = "Saint Joseph";
+     break;
+     case 7:
+     name = "Saint Luke";
+     break;
+     case 8:
+     name = "Saint Mark";
+     break;
+     case 9:
+     name = "Saint Patrick";
+     break;
+     case 10:
+     name = "Saint Paul";
+     break;
+     case 11:
+     name = "Saint Peter";
+     break;
+   }
+ }
+ if (country_code.equals("DO") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Azua";
+     break;
+     case 2:
+     name = "Baoruco";
+     break;
+     case 3:
+     name = "Barahona";
+     break;
+     case 4:
+     name = "Dajabon";
+     break;
+     case 5:
+     name = "Distrito Nacional";
+     break;
+     case 6:
+     name = "Duarte";
+     break;
+     case 8:
+     name = "Espaillat";
+     break;
+     case 9:
+     name = "Independencia";
+     break;
+     case 10:
+     name = "La Altagracia";
+     break;
+     case 11:
+     name = "Elias Pina";
+     break;
+     case 12:
+     name = "La Romana";
+     break;
+     case 14:
+     name = "Maria Trinidad Sanchez";
+     break;
+     case 15:
+     name = "Monte Cristi";
+     break;
+     case 16:
+     name = "Pedernales";
+     break;
+     case 17:
+     name = "Peravia";
+     break;
+     case 18:
+     name = "Puerto Plata";
+     break;
+     case 19:
+     name = "Salcedo";
+     break;
+     case 20:
+     name = "Samana";
+     break;
+     case 21:
+     name = "Sanchez Ramirez";
+     break;
+     case 23:
+     name = "San Juan";
+     break;
+     case 24:
+     name = "San Pedro De Macoris";
+     break;
+     case 25:
+     name = "Santiago";
+     break;
+     case 26:
+     name = "Santiago Rodriguez";
+     break;
+     case 27:
+     name = "Valverde";
+     break;
+     case 28:
+     name = "El Seibo";
+     break;
+     case 29:
+     name = "Hato Mayor";
+     break;
+     case 30:
+     name = "La Vega";
+     break;
+     case 31:
+     name = "Monsenor Nouel";
+     break;
+     case 32:
+     name = "Monte Plata";
+     break;
+     case 33:
+     name = "San Cristobal";
+     break;
+     case 34:
+     name = "Distrito Nacional";
+     break;
+     case 35:
+     name = "Peravia";
+     break;
+     case 36:
+     name = "San Jose de Ocoa";
+     break;
+     case 37:
+     name = "Santo Domingo";
+     break;
+   }
+ }
+ if (country_code.equals("DZ") == true) {
+   switch (region_code2) {
+     case 1:
+     name = "Alger";
+     break;
+     case 3:
+     name = "Batna";
+     break;
+     case 4:
+     name = "Constantine";
+     break;
+     case 6:
+     name = "Medea";
+     break;
+     case 7:
+     name = "Mostaganem";
+     break;
+     case 9:
+     name = "Oran";
+     break;
+     case 10:
+     name = "Saida";
+     break;
+     case 12:
+     name = "Setif";
+     break;
+     case 13:
+     name = "Tiaret";
+     break;
+     case 14:
+     name = "Tizi Ouzou";
+     break;
+     case 15:
+     name = "Tlemcen";
+     break;
+     case 18:
+     name = "Bejaia";
+     break;
+     case 19:
+     name = "Biskra";
+     break;
+     case 20:
+     name = "Blida";
+     break;
+     case 21:
+     name = "Bouira";
+     break;
+     case 22:
+     name = "Djelfa";
+     break;
+     case 23:
+     name = "Guelma";
+     break;
+     case 24:
+     name = "Jijel";
+     break;
+     case 25:
+     name = "Laghouat";
+     break;
+     case 26:
+     name = "Mascara";
+     break;
+     case 27:
+     name = "M'sila";
+     break;
+     case 29:
+     name = "Oum el Bouaghi";
+     break;
+     case 30:
+     name = "Sidi Bel Abbes";
+     break;
+     case 31:
+     name = "Skikda";
+     break;
+     case 33:
+     name = "Tebessa";
+     break;
+     case 34:
+     name = "Adrar";
+     break;
+     case 35:
+     name = "Ain Defla";
+     break;
+     case 36:
+     name = "Ain Temouchent";
+     break;
+     case 37:
+     name = "Annaba";
+     break;case 38:
+         name = "Bechar";
+         break;
+         case 39:
+         name = "Bordj Bou Arreridj";
+         break;
+         case 40:
+         name = "Boumerdes";
+         break;
+         case 41:
+         name = "Chlef";
+         break;
+         case 42:
+         name = "El Bayadh";
+         break;
+         case 43:
+         name = "El Oued";
+         break;
+         case 44:
+         name = "El Tarf";
+         break;
+         case 45:
+         name = "Ghardaia";
+         break;
+         case 46:
+         name = "Illizi";
+         break;
+         case 47:
+         name = "Khenchela";
+         break;
+         case 48:
+         name = "Mila";
+         break;
+         case 49:
+         name = "Naama";
+         break;
+         case 50:
+         name = "Ouargla";
+         break;
+         case 51:
+         name = "Relizane";
+         break;
+         case 52:
+         name = "Souk Ahras";
+         break;
+         case 53:name = "Tamanghasset";
+         break;
+         case 54:
+         name = "Tindouf";
+         break;
+         case 55:
+         name = "Tipaza";
+         break;
+         case 56:
+         name = "Tissemsilt";
+         break;
+       }
+     }
+     if (country_code.equals("EC") == true) {
+       switch (region_code2) {
+         case 1:
+         name = "Galapagos";
+         break;
+         case 2:
+         name = "Azuay";
+         break;
+         case 3:
+         name = "Bolivar";
+         break;
+         case 4:
+         name = "Canar";
+         break;
+         case 5:
+         name = "Carchi";
+         break;
+         case 6:
+         name = "Chimborazo";
+         break;
+         case 7:
+         name = "Cotopaxi";
+         break;
+         case 8:
+         name = "El Oro";
+         break;
+         case 9:
+         name = "Esmeraldas";
+         break;
+         case 10:
+         name = "Guayas";
+         break;
+         case 11:
+         name = "Imbabura";
+         break;
+         case 12:
+         name = "Loja";
+         break;
+         case 13:
+         name = "Los Rios";
+         break;
+         case 14:
+         name = "Manabi";
+         break;
+         case 15:
+         name = "Morona-Santiago";
+         break;
+         case 17:
+         name = "Pastaza";
+         break;
+         case 18:
+         name = "Pichincha";
+         break;
+         case 19:
+         name = "Tungurahua";
+         break;
+         case 20:
+         name = "Zamora-Chinchipe";
+         break;
+         case 22:
+         name = "Sucumbios";
+         break;
+         case 23:
+         name = "Napo";
+         break;
+         case 24:
+         name = "Orellana";
+         break;
+       }
+     }
+     if (country_code.equals("EE") == true) {
+       switch (region_code2) {
+         case 1:
+         name = "Harjumaa";
+         break;
+         case 2:
+         name = "Hiiumaa";
+         break;
+         case 3:
+         name = "Ida-Virumaa";
+         break;
+         case 4:
+         name = "Jarvamaa";
+         break;
+         case 5:
+         name = "Jogevamaa";
+         break;
+         case 6:
+         name = "Kohtla-Jarve";
+         break;
+         case 7:
+         name = "Laanemaa";
+         break;
+         case 8:
+         name = "Laane-Virumaa";
+         break;
+         case 9:
+         name = "Narva";
+         break;
+         case 10:
+         name = "Parnu";
+         break;
+         case 11:
+         name = "Parnumaa";
+         break;
+         case 12:
+         name = "Polvamaa";
+         break;
+         case 13:
+         name = "Raplamaa";
+         break;
+         case 14:
+         name = "Saaremaa";
+         break;
+         case 15:
+         name = "Sillamae";
+         break;
+         case 16:
+         name = "Tallinn";
+         break;
+         case 17:
+         name = "Tartu";
+         break;
+         case 18:
+         name = "Tartumaa";
+         break;
+         case 19:
+         name = "Valgamaa";
+         break;
+         case 20:
+         name = "Viljandimaa";
+         break;
+         case 21:
+         name = "Vorumaa";
+         break;
+       }
+     }
+     if (country_code.equals("EG") == true) {
+       switch (region_code2) {
+         case 1:
+         name = "Ad Daqahliyah";
+         break;
+         case 2:
+         name = "Al Bahr al Ahmar";
+         break;
+         case 3:
+         name = "Al Buhayrah";
+         break;
+         case 4:
+         name = "Al Fayyum";
+         break;
+         case 5:
+         name = "Al Gharbiyah";
+         break;
+         case 6:
+         name = "Al Iskandariyah";
+         break;
+         case 7:
+         name = "Al Isma'iliyah";
+         break;
+         case 8:
+         name = "Al Jizah";
+         break;
+         case 9:
+         name = "Al Minufiyah";
+         break;
+         case 10:
+         name = "Al Minya";
+         break;
+         case 11:
+         name = "Al Qahirah";
+         break;
+         case 12:
+         name = "Al Qalyubiyah";
+         break;
+         case 13:
+         name = "Al Wadi al Jadid";
+         break;
+         case 14:
+         name = "Ash Sharqiyah";
+         break;
+         case 15:
+         name = "As Suways";
+         break;
+         case 16:
+         name = "Aswan";
+         break;
+         case 17:
+         name = "Asyut";
+         break;
+         case 18:
+         name = "Bani Suwayf";
+         break;
+         case 19:
+         name = "Bur Sa'id";
+         break;
+         case 20:
+         name = "Dumyat";
+         break;
+         case 21:
+         name = "Kafr ash Shaykh";
+         break;
+         case 22:
+         name = "Matruh";
+         break;
+         case 23:
+         name = "Qina";
+         break;
+         case 24:
+         name = "Suhaj";
+         break;
+         case 26:
+         name = "Janub Sina'";
+         break;
+         case 27:
+         name = "Shamal Sina'";
+         break;
+       }
+     }
+     if (country_code.equals("ER") == true) {
+       switch (region_code2) {
+         case 1:
+         name = "Anseba";
+         break;
+         case 2:
+         name = "Debub";
+         break;
+         case 3:
+         name = "Debubawi K'eyih Bahri";
+         break;
+         case 4:
+         name = "Gash Barka";
+         break;
+         case 5:
+         name = "Ma'akel";
+         break;
+         case 6:
+         name = "Semenawi K'eyih Bahri";
+         break;
+       }
+     }
+     if (country_code.equals("ES") == true) {
+       switch (region_code2) {
+         case 7:
+         name = "Islas Baleares";
+         break;
+         case 27:
+         name = "La Rioja";
+         break;
+         case 29:
+         name = "Madrid";
+         break;
+         case 31:
+         name = "Murcia";
+         break;
+         case 32:
+         name = "Navarra";
+         break;
+         case 34:
+         name = "Asturias";
+         break;
+         case 39:
+         name = "Cantabria";
+         break;
+         case 51:
+         name = "Andalucia";
+         break;
+         case 52:
+         name = "Aragon";
+         break;
+         case 53:
+         name = "Canarias";
+         break;
+         case 54:
+         name = "Castilla-La Mancha";
+         break;
+         case 55:
+         name = "Castilla y Leon";
+         break;
+         case 56:
+         name = "Catalonia";
+         break;
+         case 57:
+         name = "Extremadura";
+         break;
+         case 58:
+         name = "Galicia";
+         break;
+         case 59:
+         name = "Pais Vasco";
+         break;
+         case 60:
+         name = "Comunidad Valenciana";
+         break;
+       }
+     }
+     if (country_code.equals("ET") == true) {
+       switch (region_code2) {
+         case 44:
+         name = "Adis Abeba";
+         break;
+         case 45:
+         name = "Afar";
+         break;
+         case 46:
+         name = "Amara";
+         break;
+         case 47:
+         name = "Binshangul Gumuz";
+         break;
+         case 48:
+         name = "Dire Dawa";
+         break;
+         case 49:
+         name = "Gambela Hizboch";
+         break;
+         case 50:
+         name = "Hareri Hizb";
+         break;
+         case 51:
+         name = "Oromiya";
+         break;
+         case 52:
+         name = "Sumale";
+         break;
+         case 53:
+         name = "Tigray";
+         break;
+         case 54:
+         name = "YeDebub Biheroch Bihereseboch na Hizboch";
+         break;
+       }
+     }
+     if (country_code.equals("FI") == true) {
+       switch (region_code2) {
+         case 1:
+         name = "Aland";
+         break;
+         case 6:
+         name = "Lapland";
+         break;
+         case 8:
+         name = "Oulu";
+         break;
+         case 13:
+         name = "Southern Finland";
+         break;
+         case 14:
+         name = "Eastern Finland";
+         break;
+         case 15:
+         name = "Western Finland";
+         break;
+       }
+     }
+     if (country_code.equals("FJ") == true) {
+       switch (region_code2) {
+         case 1:
+         name = "Central";
+         break;
+         case 2:
+         name = "Eastern";
+         break;
+         case 3:
+         name = "Northern";
+         break;
+         case 4:
+         name = "Rotuma";
+         break;
+         case 5:
+         name = "Western";
+         break;
+       }
+     }
+     if (country_code.equals("FM") == true) {
+       switch (region_code2) {
+         case 1:
+         name = "Kosrae";
+         break;
+         case 2:
+         name = "Pohnpei";
+         break;
+         case 3:
+         name = "Chuuk";
+         break;
+         case 4:
+         name = "Yap";
+         break;
+       }
+     }
+     if (country_code.equals("FR") == true) {
+       switch (region_code2) {
+         case 97:
+         name = "Aquitaine";
+         break;
+         case 98:
+         name = "Auvergne";
+         break;
+         case 99:
+         name = "Basse-Normandie";
+         break;
+         case 832:
+         name = "Bourgogne";
+         break;
+         case 833:
+         name = "Bretagne";
+         break;
+         case 834:
+         name = "Centre";
+         break;
+         case 835:
+         name = "Champagne-Ardenne";
+         break;
+         case 836:
+         name = "Corse";
+         break;
+         case 837:
+         name = "Franche-Comte";
+         break;
+         case 838:
+         name = "Haute-Normandie";
+         break;
+         case 839:
+         name = "Ile-de-France";
+         break;
+         case 840:
+         name = "Languedoc-Roussillon";
+         break;
+         case 875:
+         name = "Limousin";
+         break;
+         case 876:
+         name = "Lorraine";
+         break;
+         case 877:
+         name = "Midi-Pyrenees";
+         break;
+         case 878:
+         name = "Nord-Pas-de-Calais";
+         break;
+         case 879:
+         name = "Pays de la Loire";
+         break;
+         case 880:
+         name = "Picardie";
+         break;
+         case 881:
+         name = "Poitou-Charentes";
+         break;
+         case 882:
+         name = "Provence-Alpes-Cote d'Azur";
+         break;
+         case 883:
+         name = "Rhone-Alpes";
+         break;
+         case 918:
+         name = "Alsace";
+         break;
+       }
+     }
+     if (country_code.equals("GA") == true) {
+       switch (region_code2) {
+         case 1:
+         name = "Estuaire";
+         break;
+         case 2:
+         name = "Haut-Ogooue";
+         break;
+         case 3:
+         name = "Moyen-Ogooue";
+         break;
+         case 4:
+         name = "Ngounie";
+         break;
+         case 5:
+         name = "Nyanga";
+         break;
+         case 6:
+         name = "Ogooue-Ivindo";
+         break;
+         case 7:
+         name = "Ogooue-Lolo";
+         break;
+         case 8:
+         name = "Ogooue-Maritime";
+         break;
+         case 9:
+         name = "Woleu-Ntem";
+         break;
+       }

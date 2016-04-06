@@ -1,0 +1,9 @@
+package com.maxmind.geoip2;
+
+import java.lang.Object;
+
+public class GeoLocation {
+	
+	
+
+}
