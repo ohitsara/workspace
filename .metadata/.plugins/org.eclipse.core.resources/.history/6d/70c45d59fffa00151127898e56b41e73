@@ -1,5 +1,0 @@
-package com.maxmind.geoip2;
-
-public class Region {
-
-}

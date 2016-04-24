@@ -1,0 +1,112 @@
+import java.io.*;
+import java.lang.reflect.Array;
+import java.util.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+public class ReadCalendarFile {
+	
+	private static ArrayList<Integer> stime = new ArrayList<Integer>();
+	private static ArrayList<Integer> eDate	= new ArrayList<Integer>();
+	
+	public static void main(String [] args) throws IOException, ParseException{
+		/*
+		 * @override
+		 * Initializations for the iteration
+		 * of while loop
+		 */
+		Scanner in = new Scanner(System.in); 
+		String file;
+		ArrayList<String> list = new ArrayList<String>(); //storage .ics files from user
+		
+		System.out.println("Please input your iCal file(s):");
+		while ((file = in.nextLine()).length( ) > 0){
+			list.add(file);
+		}//end of while loop
+		in.close();
+		
+		/*
+		 * @override
+		 * Initializations for reading the
+		 * multiple .ics files
+		 */
+		
+		String fileName			= null;
+		String line				= null;
+		String eventStartTime	= null;
+		String eventEndTime		= null;
+		String[] event			= new String[2];
+		String[] eventTime		= new String[2];
+		Integer eventDate		= 0;
+		
+		
+		for(int i = 0; i < list.size(); i++){	
+			try{
+				fileName = list.get(i);
+				FileReader fr = new FileReader(fileName);
+				BufferedReader br = new BufferedReader(fr);
+				
+				while((line = br.readLine()) != null) {
+					if (line.contains("DTSTART")){
+		            	line = line.substring(0, line.length()-1);
+		                event = line.split(":", 2);
+		    	        eventTime = event[1].split("T", 2);
+		    	        eventStartTime = eventTime[1];
+		    	        eventDate = Integer.parseInt(eventTime[0]);
+         	        	eDate.add(eventDate);
+         	        	
+		    	        int eventST = Integer.parseInt(eventStartTime);
+		    	        stime.add(eventST);        
+		    	        
+		    	        	
+		            }//end of 1st if in while
+					if (line.contains("DTEND")){
+                 		line = line.substring(0, line.length()-1);
+                 		event = line.split(":", 2);
+         	        	eventTime = event[1].split("T", 2);
+         	        	eventEndTime = eventTime[1];
+         	        	
+
+         	        	int eventET = Integer.parseInt(eventEndTime);
+         	        	
+                 	}//close if
+				}//end of while loop
+				br.close();
+			}//end of try      
+			catch(FileNotFoundException ex) {
+				System.out.println("Unable to open file '" + fileName + "'");                
+			}//end of 1st catch
+			catch(IOException ex) {
+				System.out.println("Error reading file '" + fileName + "'");                  
+            }//end of 2nd catch
+		}//end of for loop
+		
+		TimeSort();
+	}//end of main
+	public static void TimeSort(){
+		
+		Integer [] eventDate = new Integer[eDate.size()];
+		eventDate = eDate.toArray(eventDate);
+		
+		Integer [] timeCheck = new Integer[stime.size()];
+		timeCheck = stime.toArray(timeCheck);
+		Arrays.sort(timeCheck);
+		
+		for (int i = 0; i < eventDate.length; i++) {
+		    for (int k = 0; k < eventDate.length; k++) {
+		        if (eventDate[i] != eventDate[k]) {
+		        	break;
+		        }
+		        else{
+		        	System.out.println("Event Occurs at the following times:");
+		    		for (int number : timeCheck) {
+		    			System.out.println("Event at:" + number);
+		    		}
+		        	
+		        }
+		    }
+		}
+		
+	}
+
+}//end of class
