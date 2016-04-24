@@ -213,7 +213,8 @@ public class CalendarMaker {
   public void makeCalendar(String filename) {
     PrintWriter writer = null;
     try {
-      writer = new PrintWriter(filename, "UTF-8");
+      File file = new File(filename + ".ics");
+      writer = new PrintWriter(file);
     } catch (Exception e) {
       e.printStackTrace();
       System.out.println("Error with file name");

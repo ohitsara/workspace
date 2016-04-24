@@ -7,34 +7,30 @@ import java.text.SimpleDateFormat;
 
 public class ReadCalendarFile {
 	
+	private static ArrayList<String>  list 	= new ArrayList<String>(); //storage .ics files from user
 	private static ArrayList<Integer> stime		= new ArrayList<Integer>();
 	private static ArrayList<Integer> eDate		= new ArrayList<Integer>();
 	private static ArrayList<Float>   latitude	= new ArrayList<Float>();
 	private static ArrayList<Float>	  longitude	= new ArrayList<Float>();
 
-
+	private static Scanner in = new Scanner(System.in); 
 	
 	public static void main(String [] args) throws IOException, ParseException{
-		/*
-		 * 
-		 * Initializations for the iteration
-		 * of while loop
-		 */
-		Scanner in = new Scanner(System.in); 
-		String file;
-		ArrayList<String> list = new ArrayList<String>(); //storage .ics files from user
+
+		readInput();
+		TimeSort();
+		GreatCircleDistance();
+		promptEnterKey();
+		outputCal();
 		
+	}//end of main
+	public static void readInput(){
+		
+		String file;
 		System.out.println("Please input your iCal file(s):");
 		while ((file = in.nextLine()).length( ) > 0){
 			list.add(file);
 		}//end of while loop
-		in.close();
-		
-		/*
-		 *
-		 * Initializations for reading the
-		 * multiple .ics files
-		 */
 		
 		String fileName			= null;
 		String line				= null;
@@ -95,9 +91,7 @@ public class ReadCalendarFile {
             }//end of 2nd catch
 		}//end of for loop
 		
-		TimeSort();
-		GreatCircleDistance();
-	}//end of main
+	}
 	public static void TimeSort(){
 		
 		Integer [] eventDate = new Integer[eDate.size()];
@@ -116,7 +110,7 @@ public class ReadCalendarFile {
 		        else{
 		        	System.out.println("Event Occurs at the following times:");
 		    		for (int number : timeCheck) {
-		    			System.out.println("Event occurs from" + sdf.format(number));
+		    			System.out.println("Event occurs from " + sdf.format(number));
 		    		}
 		        	
 		        }
@@ -149,6 +143,29 @@ public class ReadCalendarFile {
 		}
 		
 	}//end of GreatCircleDistance
+	public static void outputCal(){
+		
+		String [] outFile = new String[list.size()];
+		outFile = list.toArray(outFile);
 	
-
+		System.out.println("Enter a filename to save data:");
+		String filename = in.nextLine();
+			for(int i = 0; i < outFile.length; i++){
+				PrintWriter writer = null;
+				try {
+					File f = new File(filename + ".ics");
+					writer = new PrintWriter(f);
+					writer.println(outFile[i]);
+				} catch (Exception e) {
+					e.printStackTrace();
+					System.out.println("Error with file name");
+					return;
+		    }
+				writer.close();
+			}
+	}
+	public static void promptEnterKey(){
+		System.out.println("Press \"ENTER\" to continue...");
+		in.nextLine();
+	}
 }//end of class

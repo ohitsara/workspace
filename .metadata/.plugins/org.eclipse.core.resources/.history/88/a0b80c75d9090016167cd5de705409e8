@@ -1,0 +1,171 @@
+import java.io.*;
+import java.lang.reflect.Array;
+import java.util.*;
+import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+public class ReadCalendarFile {
+	
+	private static ArrayList<String>   list 	= new ArrayList<String>(); //storage .ics files from user
+	private static ArrayList<Integer> stime		= new ArrayList<Integer>();
+	private static ArrayList<Integer> eDate		= new ArrayList<Integer>();
+	private static ArrayList<Float>   latitude	= new ArrayList<Float>();
+	private static ArrayList<Float>	  longitude	= new ArrayList<Float>();
+
+	private static Scanner in = new Scanner(System.in); 
+	
+	public static void main(String [] args) throws IOException, ParseException{
+
+		String file;
+		
+		System.out.println("Please input your iCal file(s):");
+		while ((file = in.nextLine()).length( ) > 0){
+			list.add(file);
+		}//end of while loop
+		
+		/*
+		 *
+		 * Initializations for reading the
+		 * multiple .ics files
+		 */
+		String fileName			= null;
+		String line				= null;
+		String eventStartTime	= null;
+		String eventEndTime		= null;
+		String[] event			= new String[2];
+		String[] eventTime		= new String[2];
+		String[] coordinate		= new String[2];
+		String[] coordinateSplit= new String[2];
+		Integer eventDate		= 0;
+		
+		
+		for(int i = 0; i < list.size(); i++){	
+			try{
+				fileName = list.get(i);
+				FileReader fr = new FileReader(fileName);
+				BufferedReader br = new BufferedReader(fr);
+				
+				while((line = br.readLine()) != null) {
+					if (line.contains("DTSTART")){
+		            	line = line.substring(0, line.length()-1);
+		                event = line.split(":", 2);
+		    	        eventTime = event[1].split("T", 2);
+		    	        eventStartTime = eventTime[1];
+		    	        eventDate = Integer.parseInt(eventTime[0]);
+         	        	eDate.add(eventDate);
+         	        	
+		    	        int eventST = Integer.parseInt(eventStartTime);
+		    	        stime.add(eventST);        
+		    	        
+		    	        	
+		            }//end of 1st if in while
+					if (line.contains("DTEND")){
+                 		line = line.substring(0, line.length()-1);
+                 		event = line.split(":", 2);
+         	        	eventTime = event[1].split("T", 2);
+         	        	eventEndTime = eventTime[1];
+         	        	
+
+         	        	int eventET = Integer.parseInt(eventEndTime);
+         	        	
+                 	}//close if
+					if (line.contains("GEOGRAPHIC POSITION")){
+                 		line = line.substring(0, line.length());
+                 		coordinate = line.split(":", 2);
+                 		coordinateSplit = coordinate[1].split("/", 2);
+                 		latitude.add(Float.parseFloat(coordinateSplit[0]));
+                 		longitude.add(Float.parseFloat(coordinateSplit[1]));
+                 	}//close if
+				}//end of while loop
+				br.close();
+			}//end of try      
+			catch(FileNotFoundException ex) {
+				System.out.println("Unable to open file '" + fileName + "'");                
+			}//end of 1st catch
+			catch(IOException ex) {
+				System.out.println("Error reading file '" + fileName + "'");                  
+            }//end of 2nd catch
+		}//end of for loop
+		
+		TimeSort();
+		GreatCircleDistance();
+		promptEnterKey();
+		outputCal();
+	}//end of main
+	public static void TimeSort(){
+		
+		Integer [] eventDate = new Integer[eDate.size()];
+		eventDate = eDate.toArray(eventDate);
+		
+		Integer [] timeCheck = new Integer[stime.size()];
+		timeCheck = stime.toArray(timeCheck);
+		Arrays.sort(timeCheck);
+		SimpleDateFormat sdf = new SimpleDateFormat("hha");
+		
+		for (int i = 0; i < eventDate.length; i++) {
+		    for (int k = 0; k < eventDate.length; k++) {
+		        if (eventDate[i] != eventDate[k]) {
+		        	break;
+		        }
+		        else{
+		        	System.out.println("Event Occurs at the following times:");
+		    		for (int number : timeCheck) {
+		    			System.out.println("Event occurs from " + sdf.format(number));
+		    		}
+		        	
+		        }
+		    }
+		}
+		
+	}//end of TimeSort()
+	public static void GreatCircleDistance(){
+		
+		DecimalFormat df = new DecimalFormat("#.00"); 
+		String distance = null;
+		
+		Float [] xlat = new Float[latitude.size()];
+		xlat = latitude.toArray(xlat);
+		Float [] ylon = new Float[longitude.size()];
+		ylon = longitude.toArray(ylon);
+		
+		for(int i = 0; i < xlat.length; i++){
+			double x = Math.toRadians(xlat[0]);
+			double y = Math.toRadians(ylon[0]);
+			double angle1 =  Math.acos(Math.sin(x) * Math.sin(x+1)
+                    + Math.cos(x) * Math.cos(x+1) 
+                    * Math.cos(y - (y+1)));
+			
+			 angle1 = Math.toDegrees(angle1);
+			 double distance1 = 60 * angle1;
+			 distance = df.format(distance1);
+
+		     System.out.println(distance + " nautical miles");
+		}
+		
+	}//end of GreatCircleDistance
+	public static void outputCal(){
+		
+		String [] outFile = new String[list.size()];
+		outFile = list.toArray(outFile);
+	
+		System.out.println("Enter a filename to save data:");
+		String filename = in.nextLine();
+			for(int i = 0; i < outFile.length; i++){
+				PrintWriter writer = null;
+				try {
+					writer = new PrintWriter(filename, "UTF-8");
+					writer.println(outFile[i]);
+				} catch (Exception e) {
+					e.printStackTrace();
+					System.out.println("Error with file name");
+					return;
+		    }
+				writer.close();
+			}
+	}
+	public static void promptEnterKey(){
+		System.out.println("Press \"ENTER\" to continue...");
+		in.nextLine();
+	}
+}//end of class
