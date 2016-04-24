@@ -11,11 +11,6 @@ import java.text.SimpleDateFormat;
 
 public class ReadFile {
 	
-		/*
-		 * @Override
-		 * Global Variables
-		 * Float: values to handle coordinates per se on rfc requirements
-		 */
 		private float []	lat	= new float[100];
 		private float []	lon	= new float[100];
 		

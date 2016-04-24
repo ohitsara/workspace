@@ -1,12 +1,13 @@
 /*
  * 
  * @author: TeamSeis
- * ICS 314-SP16 
+ * ICS 314-SP16 Calendar Project
+ * Comment: Code recycled and modified from
+ * previous homework/class taken.
  * 
  * This class sets up the date, start time
  * and end time of the CalendarMaker class
- * Comment: Code recycled and modified from
- * previous homework/class taken. 
+ * 
  */
 public class DateBlock implements Comparable<DateBlock> {
   private DateData	startTime;
