@@ -182,6 +182,7 @@ public class ReadCalendarFile {
 		String [] outFile = new String[list.size()];
 		outFile = list.toArray(outFile);
 		
+		//File file = new File("outputEvent.txt"); //this is just to show the comment section of the .ics file
 		File file = new File("outputEvent.ics");
 	    try {
 			writer = new PrintWriter(file);
@@ -200,7 +201,7 @@ public class ReadCalendarFile {
 				while((line = br.readLine()) != null) {
 					writer.println(line);
 				}
-				writer.println("COMMENT: " + insert );
+				writer.println("COMMENT: " + insert + "km.");
 			}//end of try      
 			catch(FileNotFoundException ex) {
 				System.out.println("Unable to open file '" + oFile + "'");                
