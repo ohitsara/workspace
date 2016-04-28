@@ -7,35 +7,32 @@ import java.text.SimpleDateFormat;
 
 public class ReadCalendarFile {
 	
-	private static ArrayList<String>   list 	= new ArrayList<String>(); //storage .ics files from user
+	private static ArrayList<String>  list 		= new ArrayList<String>(); //storage .ics files from user
 	private static ArrayList<Integer> stime		= new ArrayList<Integer>();
 	private static ArrayList<Integer> eDate		= new ArrayList<Integer>();
 	private static ArrayList<Float>   latitude	= new ArrayList<Float>();
 	private static ArrayList<Float>	  longitude	= new ArrayList<Float>();
-
-
+	private static ArrayList<String>  radius	= new ArrayList<String>();
 	
+	private static Scanner in = new Scanner(System.in); 
+
 	public static void main(String [] args) throws IOException, ParseException{
-		/*
-		 * 
-		 * Initializations for the iteration
-		 * of while loop
-		 */
-		Scanner in = new Scanner(System.in); 
+
+		readInput();
+		TimeSort();
+		GreatCircleDistance();
+		promptEnterKey();
+		outputCal();
+		
+	}//end of main
+	public static void readInput(){
+		
 		String file;
-		
-		
 		System.out.println("Please input your iCal file(s):");
 		while ((file = in.nextLine()).length( ) > 0){
 			list.add(file);
 		}//end of while loop
-		in.close();
 		
-		/*
-		 *
-		 * Initializations for reading the
-		 * multiple .ics files
-		 */
 		String fileName			= null;
 		String line				= null;
 		String eventStartTime	= null;
@@ -95,10 +92,7 @@ public class ReadCalendarFile {
             }//end of 2nd catch
 		}//end of for loop
 		
-		TimeSort();
-		GreatCircleDistance();
-		outputCal();
-	}//end of main
+	}
 	public static void TimeSort(){
 		
 		Integer [] eventDate = new Integer[eDate.size()];
@@ -107,7 +101,7 @@ public class ReadCalendarFile {
 		Integer [] timeCheck = new Integer[stime.size()];
 		timeCheck = stime.toArray(timeCheck);
 		Arrays.sort(timeCheck);
-		SimpleDateFormat sdf = new SimpleDateFormat("hha");
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:a");
 		
 		for (int i = 0; i < eventDate.length; i++) {
 		    for (int k = 0; k < eventDate.length; k++) {
@@ -117,7 +111,10 @@ public class ReadCalendarFile {
 		        else{
 		        	System.out.println("Event Occurs at the following times:");
 		    		for (int number : timeCheck) {
-		    			System.out.println("Event occurs from" + sdf.format(number));
+		    			if(number < 12000){
+		    				System.out.println("Event occurs from " + number +"am");
+		    			}else
+		    			System.out.println("Event occurs from " + number + "pm");
 		    		}
 		        	
 		        }
@@ -126,9 +123,8 @@ public class ReadCalendarFile {
 		
 	}//end of TimeSort()
 	public static void GreatCircleDistance(){
-		
-		DecimalFormat df = new DecimalFormat("#.00"); 
 		String distance = null;
+		DecimalFormat df = new DecimalFormat("#.00"); 
 		
 		Float [] xlat = new Float[latitude.size()];
 		xlat = latitude.toArray(xlat);
@@ -145,31 +141,55 @@ public class ReadCalendarFile {
 			 angle1 = Math.toDegrees(angle1);
 			 double distance1 = 60 * angle1;
 			 distance = df.format(distance1);
-
-		     System.out.println(distance + " nautical miles");
+			 radius.add(distance);
 		}
 		
 	}//end of GreatCircleDistance
+	@SuppressWarnings("resource")
 	public static void outputCal(){
-		Scanner scanner	= new Scanner(System.in);
-		System.out.println("Enter a filename to save data");
-        String filename = scanner.nextLine();
-        
+		
+		PrintWriter writer = null;
+		String line = null;
+		String oFile = null;
+		String insert = null;
+		int j = 0;
+		
 		String [] outFile = new String[list.size()];
 		outFile = list.toArray(outFile);
 		
-		for(int i = 0; i < outFile.length; i++){
-		filename = outFile[i];
-		PrintWriter writer = null;
-		    try {
-		      writer = new PrintWriter(filename, "UTF-8");
-		    } catch (Exception e) {
-		      e.printStackTrace();
-		      System.out.println("Error with file name");
-		      return;
-		    }
-		 writer.close();
+		File file = new File("outputEvent.ics");
+	    try {
+			writer = new PrintWriter(file);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+	    
+		for(int i= 0; i < outFile.length; i++);{
+			insert = "The distance is " + radius.get(j);
+			try{
+				oFile = outFile[j];
+				FileReader fr = new FileReader(oFile);
+				BufferedReader br = new BufferedReader(fr);
+			    
+				while((line = br.readLine()) != null) {
+					writer.println(line);
+				}
+				writer.println("COMMENT: " + insert );
+			}//end of try      
+			catch(FileNotFoundException ex) {
+				System.out.println("Unable to open file '" + oFile + "'");                
+			}//end of 1st catch
+			catch(IOException ex) {
+				System.out.println("Error reading file '" + oFile + "'");                  
+            }//end of 2nd catch
+			j++;
+			writer.close();
+		}//end of for loop
+		
+	}//end of outputCal
+	public static void promptEnterKey(){
+		System.out.println("Press \"ENTER\" to continue...");
+		in.nextLine();
 	}
-
 }//end of class

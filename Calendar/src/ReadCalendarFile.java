@@ -1,9 +1,18 @@
+/*
+ * ReadCalendarFile
+ * ICS314-SP16 
+ * Author: TeamSeis
+ * 
+ * This program follows the requirement 
+ * of Check-in 3.
+ */
 import java.io.*;
 import java.lang.reflect.Array;
 import java.util.*;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+
 
 public class ReadCalendarFile {
 	
@@ -93,6 +102,12 @@ public class ReadCalendarFile {
 		}//end of for loop
 		
 	}
+	/*
+	 * Method: TimeSort()
+	 * Takes the date in the arraylist
+	 * Converts it to integer and find for the
+	 * earlier time. 
+	 */
 	public static void TimeSort(){
 		
 		Integer [] eventDate = new Integer[eDate.size()];
@@ -101,7 +116,8 @@ public class ReadCalendarFile {
 		Integer [] timeCheck = new Integer[stime.size()];
 		timeCheck = stime.toArray(timeCheck);
 		Arrays.sort(timeCheck);
-		SimpleDateFormat sdf = new SimpleDateFormat("hha");
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("hh:mma");
 		
 		for (int i = 0; i < eventDate.length; i++) {
 		    for (int k = 0; k < eventDate.length; k++) {
@@ -119,6 +135,12 @@ public class ReadCalendarFile {
 		}
 		
 	}//end of TimeSort()
+	/*
+	 * Method: GreatCirlceDistance()
+	 * Takes the array for latitude and longitude
+	 * coordinates and calculated the 
+	 * distance between the events.
+	 */
 	public static void GreatCircleDistance(){
 		String distance = null;
 		DecimalFormat df = new DecimalFormat("#.00"); 
@@ -143,6 +165,12 @@ public class ReadCalendarFile {
 		
 	}//end of GreatCircleDistance
 	@SuppressWarnings("resource")
+	/*
+	 * Method: outputCal()
+	 * Re-output the first .ics files
+	 * and adds the comment field with
+	 * the calculated radius.
+	 */
 	public static void outputCal(){
 		
 		PrintWriter writer = null;
@@ -185,6 +213,10 @@ public class ReadCalendarFile {
 		}//end of for loop
 		
 	}//end of outputCal
+	/*
+	 * Method: promtpEnterKey()
+	 * Flush out the extra ENTER key
+	 */
 	public static void promptEnterKey(){
 		System.out.println("Press \"ENTER\" to continue...");
 		in.nextLine();
