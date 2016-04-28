@@ -139,6 +139,8 @@ public class ReadCalendarFile {
 			 double distance1 = 60 * angle1;
 			 distance = df.format(distance1);
 			 radius.add(distance);
+
+		     System.out.println(distance + " nautical miles");
 		}
 		
 	}//end of GreatCircleDistance
@@ -154,7 +156,7 @@ public class ReadCalendarFile {
 		String [] outFile = new String[list.size()];
 		outFile = list.toArray(outFile);
 		
-		File file = new File("outputEvent.ics");
+		File file = new File("outputEvent.txt");
 	    try {
 			writer = new PrintWriter(file);
 		} catch (FileNotFoundException e) {
@@ -163,7 +165,7 @@ public class ReadCalendarFile {
 		}
 	    
 		for(int i= 0; i < outFile.length; i++);{
-			insert = "The distance is " + radius.get(j);
+			insert = "The distance is" + radius.get(j);
 			try{
 				oFile = outFile[j];
 				FileReader fr = new FileReader(oFile);
@@ -171,8 +173,8 @@ public class ReadCalendarFile {
 			    
 				while((line = br.readLine()) != null) {
 					writer.println(line);
+					writer.println("COMMENT:" + insert );
 				}
-				writer.println("COMMENT: " + insert );
 			}//end of try      
 			catch(FileNotFoundException ex) {
 				System.out.println("Unable to open file '" + oFile + "'");                

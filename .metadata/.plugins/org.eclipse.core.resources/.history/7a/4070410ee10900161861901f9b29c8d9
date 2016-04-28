@@ -7,15 +7,14 @@ import java.text.SimpleDateFormat;
 
 public class ReadCalendarFile {
 	
-	private static ArrayList<String>  list 		= new ArrayList<String>(); //storage .ics files from user
+	private static ArrayList<String>  list 	= new ArrayList<String>(); //storage .ics files from user
 	private static ArrayList<Integer> stime		= new ArrayList<Integer>();
 	private static ArrayList<Integer> eDate		= new ArrayList<Integer>();
 	private static ArrayList<Float>   latitude	= new ArrayList<Float>();
 	private static ArrayList<Float>	  longitude	= new ArrayList<Float>();
-	private static ArrayList<String>  radius	= new ArrayList<String>();
-	
-	private static Scanner in = new Scanner(System.in); 
 
+	private static Scanner in = new Scanner(System.in); 
+	
 	public static void main(String [] args) throws IOException, ParseException{
 
 		readInput();
@@ -120,8 +119,9 @@ public class ReadCalendarFile {
 		
 	}//end of TimeSort()
 	public static void GreatCircleDistance(){
-		String distance = null;
+		
 		DecimalFormat df = new DecimalFormat("#.00"); 
+		String distance = null;
 		
 		Float [] xlat = new Float[latitude.size()];
 		xlat = latitude.toArray(xlat);
@@ -138,53 +138,32 @@ public class ReadCalendarFile {
 			 angle1 = Math.toDegrees(angle1);
 			 double distance1 = 60 * angle1;
 			 distance = df.format(distance1);
-			 radius.add(distance);
+
+		     System.out.println(distance + " nautical miles");
 		}
 		
 	}//end of GreatCircleDistance
-	@SuppressWarnings("resource")
 	public static void outputCal(){
-		
-		PrintWriter writer = null;
-		String line = null;
-		String oFile = null;
-		String insert = null;
-		int j = 0;
 		
 		String [] outFile = new String[list.size()];
 		outFile = list.toArray(outFile);
-		
-		File file = new File("outputEvent.ics");
-	    try {
-			writer = new PrintWriter(file);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	    
-		for(int i= 0; i < outFile.length; i++);{
-			insert = "The distance is " + radius.get(j);
-			try{
-				oFile = outFile[j];
-				FileReader fr = new FileReader(oFile);
-				BufferedReader br = new BufferedReader(fr);
-			    
-				while((line = br.readLine()) != null) {
-					writer.println(line);
-				}
-				writer.println("COMMENT: " + insert );
-			}//end of try      
-			catch(FileNotFoundException ex) {
-				System.out.println("Unable to open file '" + oFile + "'");                
-			}//end of 1st catch
-			catch(IOException ex) {
-				System.out.println("Error reading file '" + oFile + "'");                  
-            }//end of 2nd catch
-			j++;
-			writer.close();
-		}//end of for loop
-		
-	}//end of outputCal
+	
+		System.out.println("Enter a filename to save data:");
+		String filename = in.nextLine();
+			for(int i = 0; i < outFile.length; i++){
+				PrintWriter writer = null;
+				try {
+					File f = new File(filename + ".ics");
+					writer = new PrintWriter(f);
+					writer.println(outFile[i]);
+				} catch (Exception e) {
+					e.printStackTrace();
+					System.out.println("Error with file name");
+					return;
+		    }
+				writer.close();
+			}
+	}
 	public static void promptEnterKey(){
 		System.out.println("Press \"ENTER\" to continue...");
 		in.nextLine();

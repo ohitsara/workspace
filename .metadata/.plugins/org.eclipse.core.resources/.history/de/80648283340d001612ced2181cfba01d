@@ -1,0 +1,25 @@
+import java.io.*;
+import java.lang.reflect.Array;
+import java.util.*;
+import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+public class OutputFile {
+	public static void main (String[] args){
+		
+		String line = "testfile";
+		
+		 PrintWriter writer = null;
+		 try {
+			File file = new File(line + ".ics");
+		      writer = new PrintWriter(file);
+		 } catch (Exception e) {
+		      e.printStackTrace();
+		      System.out.println("Error with file name");
+		      return;
+		 }
+		 writer.close();
+	}//end of main
+
+}//end of class
